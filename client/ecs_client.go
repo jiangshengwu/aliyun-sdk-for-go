@@ -60,7 +60,7 @@ func (client *EcsClient) Execute(action string, params map[string]string) (strin
 
 	// Call request func
 	m := reflect.ValueOf(client).MethodByName(action)
-	if (!m.IsValid()) {
+	if !m.IsValid() {
 		return "", &util.SdkError{"Method not found: " + action}
 	}
 	in := make([]reflect.Value, 1)

@@ -3,8 +3,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/jiangshengwu/aliyun-sdk-for-go/client"
 	"log"
+
+	"github.com/jiangshengwu/aliyun-sdk-for-go/client"
 )
 
 func main() {
@@ -13,13 +14,13 @@ func main() {
 	cli.AccessKeyId = "BEfUjzyexQKIiGV3"
 	cli.AccessKeySecret = "9M5fW99d9spQsgUCg34Od9lR7XMlXl"
 	cli.Format = "JSON" //optional
-	cli.Init() // Ready to use
+	cli.Init()          // Ready to use
 
 	// Perform request
 	result, err := cli.Execute("StopInstance", map[string]string{
 		"InstanceId": "i-253op6931",
 	})
-	if (err != nil) {
+	if err != nil {
 		log.Fatal(err)
 		return
 	}
