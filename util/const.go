@@ -1,6 +1,9 @@
 package util
 
 const (
-	ECS_HOST        string = "https://ecs.aliyuncs.com/?"
-	ECS_HTTP_METHOD        = "GET"
+	// ECS API Host
+	ECS_HOST string = "https://ecs.aliyuncs.com/?"
+
+	// All ECS APIs only support GET method
+	ECS_HTTP_METHOD = "GET"
 )

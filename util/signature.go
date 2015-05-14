@@ -27,7 +27,7 @@ func MapToSign(params map[string]string, keySecret string, httpMethod string) st
 func canonicalizedFromMap(params map[string]string) string {
 	keys := make([]string, len(params))
 	i := 0
-	for k, _ := range params {
+	for k := range params {
 		keys[i] = k
 		i++
 	}

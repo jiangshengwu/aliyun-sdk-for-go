@@ -38,6 +38,7 @@ func (client *EcsClient) GetSignatureVersion() string {
 	return client.attr["SignatureVersion"]
 }
 
+// Execute request
 func (client *EcsClient) Execute(action string, params map[string]string) (string, error) {
 	if params == nil {
 		params = make(map[string]string, len(client.attr))

@@ -10,6 +10,7 @@ type AliyunRequest struct {
 	Url string
 }
 
+// Http get request
 func (request *AliyunRequest) DoGetRequest() (string, error) {
 	resp, err := http.Get(request.Url)
 	if err != nil {
@@ -28,6 +29,7 @@ func (request *AliyunRequest) DoGetRequest() (string, error) {
 	return result, err
 }
 
+// Get formatted query string from map
 func GetQueryFromMap(params map[string]string) string {
 	query := ""
 	for k, v := range params {
