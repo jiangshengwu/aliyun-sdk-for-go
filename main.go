@@ -17,7 +17,7 @@ func main() {
 	cli.Init()          // Ready to use
 
 	// Perform request
-	result, err := cli.Execute("StopInstance", map[string]string{
+	result, err := cli.Execute("StartInstance", map[string]string{
 		"InstanceId": "i-253op6931",
 	})
 	if err != nil {
