@@ -11,8 +11,8 @@ import (
 func main() {
 	// Initialize client
 	cli := &client.EcsClient{}
-	cli.AccessKeyId = "BEfUjzyexQKIiGV3"
-	cli.AccessKeySecret = "9M5fW99d9spQsgUCg34Od9lR7XMlXl"
+	cli.AccessKeyId = "testId"
+	cli.AccessKeySecret = "testKey"
 	cli.Format = "JSON" //optional
 	cli.Init()          // Ready to use
 
