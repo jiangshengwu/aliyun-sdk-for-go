@@ -2,8 +2,9 @@ package util
 
 import (
 	"io/ioutil"
-	"log"
 	"net/http"
+
+	"github.com/jiangshengwu/aliyun-sdk-for-go/log"
 )
 
 type AliyunRequest struct {
@@ -15,14 +16,14 @@ func (request *AliyunRequest) DoGetRequest() (string, error) {
 	resp, err := http.Get(request.Url)
 	if err != nil {
 		// handle error
-		log.Fatal(err)
+		log.Errorln(err)
 		return "", err
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		// handle error
-		log.Fatal(err)
+		log.Errorln(err)
 		return "", err
 	}
 	result := string(body)
@@ -34,6 +35,9 @@ func GetQueryFromMap(params map[string]string) string {
 	query := ""
 	for k, v := range params {
 		query += "&" + k + "=" + v
+	}
+	if len(query) > 0 {
+		query = query[1:]
 	}
 	return query
 }
