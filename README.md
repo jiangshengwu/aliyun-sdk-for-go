@@ -31,9 +31,10 @@ result, err := cli.Group.DescribeSecurityGroupAttribute(map[string]string{
     "RegionId":        "cn-beijing",
     "SecurityGroupId": "sg-25rh80j7f",
 })
+
 if err != nil {
-    log.Errorln(err)
+    log.Error(err)
     return
 }
-log.Infoln(result)
+log.Info(result)
 ```
