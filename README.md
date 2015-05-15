@@ -20,19 +20,20 @@ go get -u github.com/jiangshengwu/aliyun-sdk-for-go
 
 ```go
 // Initialize client
-cli := &client.EcsClient{}
-cli.AccessKeyId = "Your Access Key Id"
-cli.AccessKeySecret = "Your Access Key Secrect"
-cli.Format = "JSON" //optional
-cli.Init() // Ready to use
+cli := ecs.NewClient(
+    "Your Access Key Id",
+    "Your Access Key Secret",
+    "ResourceOwnerAccount", // optional, set to empty string if it's no need for you
+)
 
 // Perform request
-result, err := cli.Execute("StopInstance", map[string]string{
-    "InstanceId": "i-253op6931",
+result, err := cli.Group.DescribeSecurityGroupAttribute(map[string]string{
+    "RegionId":        "cn-beijing",
+    "SecurityGroupId": "sg-25rh80j7f",
 })
-if (err != nil) {
-    log.Fatal(err)
+if err != nil {
+    log.Errorln(err)
     return
 }
-fmt.Println(result)
+log.Infoln(result)
 ```
