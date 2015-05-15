@@ -83,10 +83,9 @@ type CommonParam struct {
 
 func RequestAPI(params map[string]string) (string, error) {
 	query := util.GetQueryFromMap(params)
-	req := &util.AliyunRequest{
-		ECSHost + query,
-	}
-	log.Infoln(req.Url)
+	req := &util.AliyunRequest{}
+	req.Url = ECSHost + query
+	log.Debug(req.Url)
 	result, err := req.DoGetRequest()
 	return result, err
 }

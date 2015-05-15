@@ -68,7 +68,7 @@ func (op *RegionOperator) DescribeRegions(params map[string]string) (DescribeReg
 	if err != nil {
 		return DescribeRegionsResponse{}, err
 	}
-	log.Infoln(result)
+	log.Debug(result)
 	json.Unmarshal([]byte(result), &resp)
 	return resp, nil
 }
@@ -81,7 +81,7 @@ func (op *RegionOperator) DescribeZones(params map[string]string) (DescribeZones
 	if err != nil {
 		return DescribeZonesResponse{}, err
 	}
-	log.Infoln(result)
+	log.Debug(result)
 	json.Unmarshal([]byte(result), &resp)
 	return resp, nil
 }

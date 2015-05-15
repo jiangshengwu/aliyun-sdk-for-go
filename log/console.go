@@ -9,27 +9,19 @@ type ConsoleLogger struct {
 }
 
 func (t ConsoleLogger) log(args ...interface{}) {
-	fmt.Print(args...)
-}
-
-func (t ConsoleLogger) logln(args ...interface{}) {
 	fmt.Println(args...)
 }
 
 func (t ConsoleLogger) logf(fmtString string, args ...interface{}) {
-	fmt.Printf(fmtString, args...)
+	fmt.Printf(fmtString+"\n", args...)
 }
 
 func (t ConsoleLogger) err(args ...interface{}) {
-	fmt.Fprint(os.Stderr, args...)
-}
-
-func (t ConsoleLogger) errln(args ...interface{}) {
 	fmt.Fprintln(os.Stderr, args...)
 }
 
 func (t ConsoleLogger) errf(fmtString string, args ...interface{}) {
-	fmt.Fprintf(os.Stderr, fmtString, args...)
+	fmt.Fprintf(os.Stderr, fmtString+"\n", args...)
 }
 
 func (t ConsoleLogger) Debug(args ...interface{}) {
@@ -52,20 +44,12 @@ func (t ConsoleLogger) Errorf(fmtString string, args ...interface{}) {
 	t.errf(fmtString, args...)
 }
 
-func (t ConsoleLogger) Errorln(args ...interface{}) {
-	t.errln(args...)
-}
-
 func (t ConsoleLogger) Info(args ...interface{}) {
 	t.log(args...)
 }
 
 func (t ConsoleLogger) Infof(fmtString string, args ...interface{}) {
 	t.logf(fmtString, args...)
-}
-
-func (t ConsoleLogger) Infoln(args ...interface{}) {
-	t.logln(args...)
 }
 
 func (t ConsoleLogger) Fatal(args ...interface{}) {

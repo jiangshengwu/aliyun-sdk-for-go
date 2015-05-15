@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 )
 
 type Logger interface {
@@ -12,11 +13,9 @@ type Logger interface {
 
 	Error(...interface{})
 	Errorf(string, ...interface{})
-	Errorln(...interface{})
 
 	Info(...interface{})
 	Infof(string, ...interface{})
-	Infoln(...interface{})
 
 	Fatal(...interface{})
 	Fatalf(string, ...interface{})
@@ -34,18 +33,16 @@ var (
 
 func isDebug() bool {
 	debugEnv := os.Getenv("DEBUG")
-	if debugEnv != "" {
+	if strings.EqualFold(debugEnv, "true") {
 		showDebug, err := strconv.ParseBool(debugEnv)
 		if err != nil {
-			fmt.Fprintln(os.Stderr, "Error parsing boolean value from DEBUG: %s", err)
+			fmt.Fprintf(os.Stderr, "Error parsing boolean value from DEBUG: %s\n", err)
 			os.Exit(1)
 		}
 		return showDebug
 	}
 	return false
 }
-
-type Fields map[string]interface{}
 
 func Debug(args ...interface{}) {
 	l.Debug(args...)
@@ -63,20 +60,12 @@ func Errorf(fmtString string, args ...interface{}) {
 	l.Errorf(fmtString, args...)
 }
 
-func Errorln(args ...interface{}) {
-	l.Errorln(args...)
-}
-
 func Info(args ...interface{}) {
 	l.Info(args...)
 }
 
 func Infof(fmtString string, args ...interface{}) {
 	l.Infof(fmtString, args...)
-}
-
-func Infoln(args ...interface{}) {
-	l.Infoln(args...)
 }
 
 func Fatal(args ...interface{}) {

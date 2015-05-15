@@ -16,14 +16,14 @@ func (request *AliyunRequest) DoGetRequest() (string, error) {
 	resp, err := http.Get(request.Url)
 	if err != nil {
 		// handle error
-		log.Errorln(err)
+		log.Error(err)
 		return "", err
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		// handle error
-		log.Errorln(err)
+		log.Error(err)
 		return "", err
 	}
 	result := string(body)

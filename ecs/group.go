@@ -70,7 +70,7 @@ func (op *GroupOperator) CreateSecurityGroup(params map[string]string) (CreateSe
 	if err != nil {
 		return CreateSecurityGroupResponse{}, err
 	}
-	log.Infoln(result)
+	log.Debug(result)
 	json.Unmarshal([]byte(result), &resp)
 	return resp, nil
 }
@@ -83,7 +83,7 @@ func (op *GroupOperator) AuthorizeSecurityGroup(params map[string]string) (Autho
 	if err != nil {
 		return AuthorizeSecurityGroupResponse{}, err
 	}
-	log.Infoln(result)
+	log.Debug(result)
 	json.Unmarshal([]byte(result), &resp)
 	return resp, nil
 }
@@ -96,7 +96,7 @@ func (op *GroupOperator) DescribeSecurityGroupAttribute(params map[string]string
 	if err != nil {
 		return DescribeSecurityGroupAttributeResponse{}, err
 	}
-	log.Infoln(result)
+	log.Debug(result)
 	json.Unmarshal([]byte(result), &resp)
 	return resp, nil
 }
@@ -109,7 +109,7 @@ func (op *GroupOperator) DescribeSecurityGroups(params map[string]string) (Descr
 	if err != nil {
 		return DescribeSecurityGroupsResponse{}, err
 	}
-	log.Infoln(result)
+	log.Debug(result)
 	json.Unmarshal([]byte(result), &resp)
 	return resp, nil
 }
