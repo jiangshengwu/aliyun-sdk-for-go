@@ -35,6 +35,8 @@ type EcsClient struct {
 	Instance InstanceService
 	Other    OtherService
 	Image    ImageService
+	Snapshot SnapshotService
+	Disk     DiskService
 }
 
 // Initialize an ECS client
@@ -58,6 +60,8 @@ func NewClient(accessKeyId string, accessKeySecret string, resourceOwnerAccount 
 	client.Instance = &InstanceOperator{client.Common}
 	client.Other = &OtherOperator{client.Common}
 	client.Image = &ImageOperator{client.Common}
+	client.Snapshot = &SnapshotOperator{client.Common}
+	client.Disk = &DiskOperator{client.Common}
 
 	return client
 }
