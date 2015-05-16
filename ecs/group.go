@@ -12,6 +12,11 @@ type GroupService interface {
 	AuthorizeSecurityGroup(params map[string]string) (AuthorizeSecurityGroupResponse, error)
 	DescribeSecurityGroupAttribute(params map[string]string) (DescribeSecurityGroupAttributeResponse, error)
 	DescribeSecurityGroups(params map[string]string) (DescribeSecurityGroupsResponse, error)
+	RevokeSecurityGroup(params map[string]string) (RevokeSecurityGroupResponse, error)
+	DeleteSecurityGroup(params map[string]string) (DeleteSecurityGroupResponse, error)
+	ModifySecurityGroupAttribute(params map[string]string) (ModifySecurityGroupAttributeResponse, error)
+	AuthorizeSecurityGroupEgress(params map[string]string) (AuthorizeSecurityGroupEgressResponse, error)
+	RevokeSecurityGroupEgress(params map[string]string) (RevokeSecurityGroupEgressResponse, error)
 }
 
 type GroupOperator struct {
@@ -59,6 +64,43 @@ type PermissionType struct {
 
 // Response struct for DescribeSecurityGroupsResponse
 type DescribeSecurityGroupsResponse struct {
+	util.ErrorResponse
+	TotalCount int    `json:"TotalCount"`
+	PageNumber int    `json:"PageNumber"`
+	PageSize   int    `json:"PageSize"`
+	RegionId   string `json:"RegionId"`
+	AllGroups  Groups `json:"SecurityGroups"`
+}
+
+type Groups struct {
+	AllGroup []SecurityGroupItemType `json:"SecurityGroup"`
+}
+
+type SecurityGroupItemType struct {
+	SecurityGroupId   string `json:"SecurityGroupId"`
+	SecurityGroupName string `json:"SecurityGroupName"`
+	Description       string `json:"Description"`
+	VpcId             string `json:"VpcId"`
+	CreationTime      string `json:"CreationTime"`
+}
+
+type RevokeSecurityGroupResponse struct {
+	util.ErrorResponse
+}
+
+type DeleteSecurityGroupResponse struct {
+	util.ErrorResponse
+}
+
+type ModifySecurityGroupAttributeResponse struct {
+	util.ErrorResponse
+}
+
+type AuthorizeSecurityGroupEgressResponse struct {
+	util.ErrorResponse
+}
+
+type RevokeSecurityGroupEgressResponse struct {
 	util.ErrorResponse
 }
 
@@ -108,6 +150,71 @@ func (op *GroupOperator) DescribeSecurityGroups(params map[string]string) (Descr
 	result, err := RequestAPI(p)
 	if err != nil {
 		return DescribeSecurityGroupsResponse{}, err
+	}
+	log.Debug(result)
+	json.Unmarshal([]byte(result), &resp)
+	return resp, nil
+}
+
+func (op *GroupOperator) RevokeSecurityGroup(params map[string]string) (RevokeSecurityGroupResponse, error) {
+	var resp RevokeSecurityGroupResponse
+	action := GetFuncName(1)
+	p := op.Common.ResolveAllParams(action, params)
+	result, err := RequestAPI(p)
+	if err != nil {
+		return RevokeSecurityGroupResponse{}, err
+	}
+	log.Debug(result)
+	json.Unmarshal([]byte(result), &resp)
+	return resp, nil
+}
+
+func (op *GroupOperator) DeleteSecurityGroup(params map[string]string) (DeleteSecurityGroupResponse, error) {
+	var resp DeleteSecurityGroupResponse
+	action := GetFuncName(1)
+	p := op.Common.ResolveAllParams(action, params)
+	result, err := RequestAPI(p)
+	if err != nil {
+		return DeleteSecurityGroupResponse{}, err
+	}
+	log.Debug(result)
+	json.Unmarshal([]byte(result), &resp)
+	return resp, nil
+}
+
+func (op *GroupOperator) ModifySecurityGroupAttribute(params map[string]string) (ModifySecurityGroupAttributeResponse, error) {
+	var resp ModifySecurityGroupAttributeResponse
+	action := GetFuncName(1)
+	p := op.Common.ResolveAllParams(action, params)
+	result, err := RequestAPI(p)
+	if err != nil {
+		return ModifySecurityGroupAttributeResponse{}, err
+	}
+	log.Debug(result)
+	json.Unmarshal([]byte(result), &resp)
+	return resp, nil
+}
+
+func (op *GroupOperator) AuthorizeSecurityGroupEgress(params map[string]string) (AuthorizeSecurityGroupEgressResponse, error) {
+	var resp AuthorizeSecurityGroupEgressResponse
+	action := GetFuncName(1)
+	p := op.Common.ResolveAllParams(action, params)
+	result, err := RequestAPI(p)
+	if err != nil {
+		return AuthorizeSecurityGroupEgressResponse{}, err
+	}
+	log.Debug(result)
+	json.Unmarshal([]byte(result), &resp)
+	return resp, nil
+}
+
+func (op *GroupOperator) RevokeSecurityGroupEgress(params map[string]string) (RevokeSecurityGroupEgressResponse, error) {
+	var resp RevokeSecurityGroupEgressResponse
+	action := GetFuncName(1)
+	p := op.Common.ResolveAllParams(action, params)
+	result, err := RequestAPI(p)
+	if err != nil {
+		return RevokeSecurityGroupEgressResponse{}, err
 	}
 	log.Debug(result)
 	json.Unmarshal([]byte(result), &resp)

@@ -13,3 +13,9 @@ type ErrorResponse struct {
 	Code    string `json:"Code"`
 	Message string `json:"Message"`
 }
+
+type PageResponse struct {
+	TotalCount int `json:"TotalCount"`
+	PageNumber int `json:"PageNumber"`
+	PageSize   int `json:"PageSize"`
+}

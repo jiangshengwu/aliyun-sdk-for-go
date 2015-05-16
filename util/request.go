@@ -4,6 +4,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
+	"encoding/json"
+
 	"github.com/jiangshengwu/aliyun-sdk-for-go/log"
 )
 
@@ -27,6 +29,11 @@ func (request *AliyunRequest) DoGetRequest() (string, error) {
 		return "", err
 	}
 	result := string(body)
+	var errResp ErrorResponse
+	json.Unmarshal([]byte(result), &errResp)
+	if errResp.Message != "" {
+		err = &SdkError{errResp.Message}
+	}
 	return result, err
 }
 
