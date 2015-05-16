@@ -1,9 +1,11 @@
 package util
 
+import "fmt"
+
 type SdkError struct {
-	Message string
+	Resp ErrorResponse
 }
 
 func (err *SdkError) Error() string {
-	return err.Message
+	return fmt.Sprintf("Request Error:\nHostId: %s\nCode: %s\nMessage: %s", err.Resp.HostId, err.Resp.Code, err.Resp.Message)
 }

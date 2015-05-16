@@ -32,7 +32,7 @@ func (request *AliyunRequest) DoGetRequest() (string, error) {
 	var errResp ErrorResponse
 	json.Unmarshal([]byte(result), &errResp)
 	if errResp.Message != "" {
-		err = &SdkError{errResp.Message}
+		err = &SdkError{errResp}
 	}
 	return result, err
 }
