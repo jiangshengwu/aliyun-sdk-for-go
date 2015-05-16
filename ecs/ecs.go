@@ -33,6 +33,8 @@ type EcsClient struct {
 	Region   RegionService
 	Group    GroupService
 	Instance InstanceService
+	Other    OtherService
+	Image    ImageService
 }
 
 // Initialize an ECS client
@@ -54,6 +56,9 @@ func NewClient(accessKeyId string, accessKeySecret string, resourceOwnerAccount 
 	client.Region = &RegionOperator{client.Common}
 	client.Group = &GroupOperator{client.Common}
 	client.Instance = &InstanceOperator{client.Common}
+	client.Other = &OtherOperator{client.Common}
+	client.Image = &ImageOperator{client.Common}
+
 	return client
 }
 

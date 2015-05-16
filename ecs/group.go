@@ -65,17 +65,16 @@ type PermissionType struct {
 // Response struct for DescribeSecurityGroupsResponse
 type DescribeSecurityGroupsResponse struct {
 	util.ErrorResponse
-	TotalCount int    `json:"TotalCount"`
-	PageNumber int    `json:"PageNumber"`
-	PageSize   int    `json:"PageSize"`
-	RegionId   string `json:"RegionId"`
-	AllGroups  Groups `json:"SecurityGroups"`
+	util.PageResponse
+	RegionId  string `json:"RegionId"`
+	AllGroups Groups `json:"SecurityGroups"`
 }
 
 type Groups struct {
 	AllGroup []SecurityGroupItemType `json:"SecurityGroup"`
 }
 
+// See http://docs.aliyun.com/?spm=5176.775974174.2.4.BYfRJ2#/ecs/open-api/datatype&securitygroupitemtype
 type SecurityGroupItemType struct {
 	SecurityGroupId   string `json:"SecurityGroupId"`
 	SecurityGroupName string `json:"SecurityGroupName"`
@@ -84,22 +83,27 @@ type SecurityGroupItemType struct {
 	CreationTime      string `json:"CreationTime"`
 }
 
+// Response struct for RevokeSecurity
 type RevokeSecurityGroupResponse struct {
 	util.ErrorResponse
 }
 
+// Response struct for DeleteSecurityGroup
 type DeleteSecurityGroupResponse struct {
 	util.ErrorResponse
 }
 
+// Response struct for ModifySecurityGroupAttribute
 type ModifySecurityGroupAttributeResponse struct {
 	util.ErrorResponse
 }
 
+// Response struct for AuthorizeSecurityGroupEgress
 type AuthorizeSecurityGroupEgressResponse struct {
 	util.ErrorResponse
 }
 
+// Response struct for RevokeSecurityGroupEgress
 type RevokeSecurityGroupEgressResponse struct {
 	util.ErrorResponse
 }

@@ -26,31 +26,38 @@ type InstanceOperator struct {
 	Common *CommonParam
 }
 
+// Response struct for CreateInstance
 type CreateInstanceResponse struct {
 	util.ErrorResponse
 	InstanceId string `json:"InstanceId"`
 }
 
+// Response struct for StartInstance
 type StartInstanceResponse struct {
 	util.ErrorResponse
 }
 
+// Response struct for StopInstance
 type StopInstanceResponse struct {
 	util.ErrorResponse
 }
 
+// Response struct for RebootInstance
 type RebootInstanceResponse struct {
 	util.ErrorResponse
 }
 
+// Response struct for ModifyInstanceAttribute
 type ModifyInstanceAttributeResponse struct {
 	util.ErrorResponse
 }
 
+// Response struct for ModifyInstanceVpcAttribute
 type ModifyInstanceVpcAttributeResponse struct {
 	util.ErrorResponse
 }
 
+// Response struct for DescribeInstanceStatus
 type DescribeInstanceStatusResponse struct {
 	util.ErrorResponse
 	util.PageResponse
@@ -61,11 +68,13 @@ type InstanceStatusSetType struct {
 	AllInstanceStatus []InstanceStatusItemType `json:"InstanceStatus"`
 }
 
+// See http://docs.aliyun.com/?spm=5176.775974174.2.4.BYfRJ2#/ecs/open-api/datatype&instancestatusitemtype
 type InstanceStatusItemType struct {
 	InstanceId string `json:"InstanceId"`
 	Status     string `json:"Status"`
 }
 
+// See http://docs.aliyun.com/?spm=5176.775974174.2.4.BYfRJ2#/ecs/open-api/datatype&instanceattributestype
 type InstanceAttributesType struct {
 	InstanceId              string                  `json:"InstanceId"`
 	InstanceName            string                  `json:"InstanceName"`
@@ -90,6 +99,7 @@ type InstanceAttributesType struct {
 	EipAddress              EipAddressAssociateType `json:"EipAddress"`
 }
 
+// See http://docs.aliyun.com/?spm=5176.775974174.2.4.BYfRJ2#/ecs/open-api/datatype&vpcattributestype
 type VpcAttributesType struct {
 	VpcId            string           `json:"VpcId"`
 	VSwitchId        string           `json:"VSwitchId"`
@@ -97,6 +107,7 @@ type VpcAttributesType struct {
 	NatIpAddress     string           `json:"NatIpAddress"`
 }
 
+// See http://docs.aliyun.com/?spm=5176.775974174.2.4.BYfRJ2#/ecs/open-api/datatype&eipaddressassociatetype
 type EipAddressAssociateType struct {
 	AllocationId       string `json:"AllocationId"`
 	IpAddress          string `json:"IpAddress"`
@@ -104,6 +115,7 @@ type EipAddressAssociateType struct {
 	InternetChargeType string `json:"InternetChargeType"`
 }
 
+// Response struct for DescribeInstanceAttributeStatus
 type DescribeInstanceAttributeStatusResponse struct {
 	util.ErrorResponse
 	InstanceAttributesType
@@ -113,18 +125,22 @@ type OperationLocks struct {
 	AllOperationLock []OperationLocksType `json:"OperationLock"`
 }
 
+// See http://docs.aliyun.com/?spm=5176.775974174.2.4.BYfRJ2#/ecs/open-api/datatype&operationlockstype
 type OperationLocksType struct {
 	LockReason string `json:"LockReason"`
 }
 
+// See http://docs.aliyun.com/?spm=5176.775974174.2.4.BYfRJ2#/ecs/open-api/datatype&securitygroupidsettype
 type SecurityGroupIdSetType struct {
 	AllSecurityGroupId []string `json:"SecurityGroupId"`
 }
 
+// See http://docs.aliyun.com/?spm=5176.775974174.2.4.BYfRJ2#/ecs/open-api/datatype&ipaddresssettype
 type IpAddressSetType struct {
 	AllIpAddress []string `json:"IpAddress"`
 }
 
+// Response struct for DescribeInstances
 type DescribeInstancesResponse struct {
 	util.ErrorResponse
 	util.PageResponse
@@ -135,14 +151,17 @@ type Instances struct {
 	AllInstance []InstanceAttributesType `json:"Instance"`
 }
 
+// Response struct for DeleteInstance
 type DeleteInstanceResponse struct {
 	util.ErrorResponse
 }
 
+// Response struct for JoinSecurityGroup
 type JoinSecurityGroupResponse struct {
 	util.ErrorResponse
 }
 
+// Response struct for LeaveSecurityGroup
 type LeaveSecurityGroupResponse struct {
 	util.ErrorResponse
 }
