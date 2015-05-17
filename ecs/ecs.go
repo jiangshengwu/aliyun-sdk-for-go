@@ -30,13 +30,15 @@ type EcsClient struct {
 	Common *CommonParam
 
 	// Access to API call from this client
-	Region   RegionService
-	Group    GroupService
-	Instance InstanceService
-	Other    OtherService
-	Image    ImageService
-	Snapshot SnapshotService
-	Disk     DiskService
+	Region        RegionService
+	SecurityGroup SecurityGroupService
+	Instance      InstanceService
+	Other         OtherService
+	Image         ImageService
+	Snapshot      SnapshotService
+	Disk          DiskService
+	Network       NetworkService
+	Monitor       MonitorService
 }
 
 // Initialize an ECS client
@@ -56,12 +58,14 @@ func NewClient(accessKeyId string, accessKeySecret string, resourceOwnerAccount 
 	client.Common.attr = ps
 
 	client.Region = &RegionOperator{client.Common}
-	client.Group = &GroupOperator{client.Common}
+	client.SecurityGroup = &SecurityGroupOperator{client.Common}
 	client.Instance = &InstanceOperator{client.Common}
 	client.Other = &OtherOperator{client.Common}
 	client.Image = &ImageOperator{client.Common}
 	client.Snapshot = &SnapshotOperator{client.Common}
 	client.Disk = &DiskOperator{client.Common}
+	client.Network = &NetworkOperator{client.Common}
+	client.Monitor = &MonitorOperator{client.Common}
 
 	return client
 }

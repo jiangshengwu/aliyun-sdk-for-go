@@ -7,7 +7,7 @@ import (
 	"github.com/jiangshengwu/aliyun-sdk-for-go/util"
 )
 
-type GroupService interface {
+type SecurityGroupService interface {
 	CreateSecurityGroup(params map[string]string) (CreateSecurityGroupResponse, error)
 	AuthorizeSecurityGroup(params map[string]string) (AuthorizeSecurityGroupResponse, error)
 	DescribeSecurityGroupAttribute(params map[string]string) (DescribeSecurityGroupAttributeResponse, error)
@@ -19,13 +19,14 @@ type GroupService interface {
 	RevokeSecurityGroupEgress(params map[string]string) (RevokeSecurityGroupEgressResponse, error)
 }
 
-type GroupOperator struct {
+type SecurityGroupOperator struct {
 	Common *CommonParam
 }
 
 // Response struct for CreateSecurityGroup
 type CreateSecurityGroupResponse struct {
 	util.ErrorResponse
+	SecurityGroupId string `json:"SecurityGroupId"`
 }
 
 // Response struct for AuthorizeSecurityGroup
@@ -108,7 +109,7 @@ type RevokeSecurityGroupEgressResponse struct {
 	util.ErrorResponse
 }
 
-func (op *GroupOperator) CreateSecurityGroup(params map[string]string) (CreateSecurityGroupResponse, error) {
+func (op *SecurityGroupOperator) CreateSecurityGroup(params map[string]string) (CreateSecurityGroupResponse, error) {
 	var resp CreateSecurityGroupResponse
 	action := GetFuncName(1)
 	p := op.Common.ResolveAllParams(action, params)
@@ -121,7 +122,7 @@ func (op *GroupOperator) CreateSecurityGroup(params map[string]string) (CreateSe
 	return resp, nil
 }
 
-func (op *GroupOperator) AuthorizeSecurityGroup(params map[string]string) (AuthorizeSecurityGroupResponse, error) {
+func (op *SecurityGroupOperator) AuthorizeSecurityGroup(params map[string]string) (AuthorizeSecurityGroupResponse, error) {
 	var resp AuthorizeSecurityGroupResponse
 	action := GetFuncName(1)
 	p := op.Common.ResolveAllParams(action, params)
@@ -134,7 +135,7 @@ func (op *GroupOperator) AuthorizeSecurityGroup(params map[string]string) (Autho
 	return resp, nil
 }
 
-func (op *GroupOperator) DescribeSecurityGroupAttribute(params map[string]string) (DescribeSecurityGroupAttributeResponse, error) {
+func (op *SecurityGroupOperator) DescribeSecurityGroupAttribute(params map[string]string) (DescribeSecurityGroupAttributeResponse, error) {
 	var resp DescribeSecurityGroupAttributeResponse
 	action := GetFuncName(1)
 	p := op.Common.ResolveAllParams(action, params)
@@ -147,7 +148,7 @@ func (op *GroupOperator) DescribeSecurityGroupAttribute(params map[string]string
 	return resp, nil
 }
 
-func (op *GroupOperator) DescribeSecurityGroups(params map[string]string) (DescribeSecurityGroupsResponse, error) {
+func (op *SecurityGroupOperator) DescribeSecurityGroups(params map[string]string) (DescribeSecurityGroupsResponse, error) {
 	var resp DescribeSecurityGroupsResponse
 	action := GetFuncName(1)
 	p := op.Common.ResolveAllParams(action, params)
@@ -160,7 +161,7 @@ func (op *GroupOperator) DescribeSecurityGroups(params map[string]string) (Descr
 	return resp, nil
 }
 
-func (op *GroupOperator) RevokeSecurityGroup(params map[string]string) (RevokeSecurityGroupResponse, error) {
+func (op *SecurityGroupOperator) RevokeSecurityGroup(params map[string]string) (RevokeSecurityGroupResponse, error) {
 	var resp RevokeSecurityGroupResponse
 	action := GetFuncName(1)
 	p := op.Common.ResolveAllParams(action, params)
@@ -173,7 +174,7 @@ func (op *GroupOperator) RevokeSecurityGroup(params map[string]string) (RevokeSe
 	return resp, nil
 }
 
-func (op *GroupOperator) DeleteSecurityGroup(params map[string]string) (DeleteSecurityGroupResponse, error) {
+func (op *SecurityGroupOperator) DeleteSecurityGroup(params map[string]string) (DeleteSecurityGroupResponse, error) {
 	var resp DeleteSecurityGroupResponse
 	action := GetFuncName(1)
 	p := op.Common.ResolveAllParams(action, params)
@@ -186,7 +187,7 @@ func (op *GroupOperator) DeleteSecurityGroup(params map[string]string) (DeleteSe
 	return resp, nil
 }
 
-func (op *GroupOperator) ModifySecurityGroupAttribute(params map[string]string) (ModifySecurityGroupAttributeResponse, error) {
+func (op *SecurityGroupOperator) ModifySecurityGroupAttribute(params map[string]string) (ModifySecurityGroupAttributeResponse, error) {
 	var resp ModifySecurityGroupAttributeResponse
 	action := GetFuncName(1)
 	p := op.Common.ResolveAllParams(action, params)
@@ -199,7 +200,7 @@ func (op *GroupOperator) ModifySecurityGroupAttribute(params map[string]string) 
 	return resp, nil
 }
 
-func (op *GroupOperator) AuthorizeSecurityGroupEgress(params map[string]string) (AuthorizeSecurityGroupEgressResponse, error) {
+func (op *SecurityGroupOperator) AuthorizeSecurityGroupEgress(params map[string]string) (AuthorizeSecurityGroupEgressResponse, error) {
 	var resp AuthorizeSecurityGroupEgressResponse
 	action := GetFuncName(1)
 	p := op.Common.ResolveAllParams(action, params)
@@ -212,7 +213,7 @@ func (op *GroupOperator) AuthorizeSecurityGroupEgress(params map[string]string) 
 	return resp, nil
 }
 
-func (op *GroupOperator) RevokeSecurityGroupEgress(params map[string]string) (RevokeSecurityGroupEgressResponse, error) {
+func (op *SecurityGroupOperator) RevokeSecurityGroupEgress(params map[string]string) (RevokeSecurityGroupEgressResponse, error) {
 	var resp RevokeSecurityGroupEgressResponse
 	action := GetFuncName(1)
 	p := op.Common.ResolveAllParams(action, params)
