@@ -2,13 +2,34 @@
 
 The encapsulation of `Aliyun` HTTP API
 
-### Status
+### Build Status
 
 ![Travis CI](https://travis-ci.org/jiangshengwu/aliyun-sdk-for-go.svg)
 
-Alpha
+Version 0.1.0(beta)
 
-Just provide some ECS API support at present
+## Progress
+
+[Here](http://docs.aliyun.com/?spm=5176.775974174.2.4.BYfRJ2#/ecs/open-api/apisummary) to read more about ECS API.
+
+Implemented ECS API
+
+* Instance
+* Disk
+* Snapshot
+* Image
+* Network
+* Security Group
+* Region
+* Monitor
+* Other
+
+TO DO
+
+* Vpc
+* VRouter
+* VSwitch
+* Route
 
 ### Install:
 
