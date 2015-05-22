@@ -26,9 +26,10 @@ _testmain.go
 *.prof
 
 # Custom
-/main.go
-.idea
-bin
+/run.go
+/.idea
+/bin
 /install
+/*.iml
 
 

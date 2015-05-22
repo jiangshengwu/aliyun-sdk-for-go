@@ -48,7 +48,7 @@ cli := ecs.NewClient(
 )
 
 // Perform request
-result, err := cli.Group.DescribeSecurityGroupAttribute(map[string]string{
+result, err := cli.SecurityGroup.DescribeSecurityGroupAttribute(map[string]string{
     "RegionId":        "cn-beijing",
     "SecurityGroupId": "sg-25rh80j7f",
 })
