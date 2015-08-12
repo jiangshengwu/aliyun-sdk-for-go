@@ -24,7 +24,7 @@ func TestCreateVpc(t *testing.T) {
 
 	defer func() {
 		// test delete vpc
-		deleteResp, err := cli.Vpc.DeleteVpc(map[string]string {
+		deleteResp, err := cli.Vpc.DeleteVpc(map[string]string{
 			"VpcId": createResp.VpcId,
 		})
 		if err != nil {
@@ -35,7 +35,7 @@ func TestCreateVpc(t *testing.T) {
 	}()
 
 	// test vrouter
-	descrVRouterRsp, err := cli.VRouterService.DescribeVRouters(map[string]string {
+	descrVRouterRsp, err := cli.VRouterService.DescribeVRouters(map[string]string{
 		"RegionId": "cn-beijing",
 	})
 	if err != nil {
@@ -44,7 +44,7 @@ func TestCreateVpc(t *testing.T) {
 	}
 	fmt.Println(descrVRouterRsp)
 
-	descrRouteTableRsp, err := cli.RouteService.DescribeRouteTables(map[string]string {
+	descrRouteTableRsp, err := cli.RouteService.DescribeRouteTables(map[string]string{
 		"VRouterId": descrVRouterRsp.VRouters.VRouter[0].VRouterId,
 	})
 	if err != nil {
@@ -54,7 +54,7 @@ func TestCreateVpc(t *testing.T) {
 	fmt.Println(descrRouteTableRsp)
 
 	// test vswitch
-	descrVSwitchRsp, err := cli.VSwitchService.DescribeVSwitches(map[string]string {
+	descrVSwitchRsp, err := cli.VSwitchService.DescribeVSwitches(map[string]string{
 		"VpcId": createResp.VpcId,
 	})
 	if err != nil {
@@ -63,7 +63,7 @@ func TestCreateVpc(t *testing.T) {
 	}
 	fmt.Println(descrVSwitchRsp)
 
-	descResp, err := cli.Vpc.DescribeVpcs(map[string]string {
+	descResp, err := cli.Vpc.DescribeVpcs(map[string]string{
 		"RegionId":"cn-beijing",
 	});
 	if err != nil {
