@@ -12,7 +12,7 @@ type InstanceService interface {
 	 * RegionId(required):
 	 * ZoneId(optional):
 	 * ImageId(required):
-	 * InstanceType(required): func DescribeInstanceTypes
+	 * InstanceType(required): OtherService.DescribeInstanceTypes
 	 * SecurityGroupId(required):
 	 * InstanceName(optional):
 	 * Description(optional):
@@ -43,7 +43,6 @@ type InstanceService interface {
 	ModifyInstanceVpcAttribute(params map[string]string) (ModifyInstanceVpcAttributeResponse, error)
 	DescribeInstanceStatus(params map[string]string) (DescribeInstanceStatusResponse, error)
 	DescribeInstanceAttribute(params map[string]string) (DescribeInstanceAttributeStatusResponse, error)
-	DescribeInstanceTypes(params map[string]string) (DescribeInstanceTypesResponse, error)
 	DescribeInstances(params map[string]string) (DescribeInstancesResponse, error)
 	DeleteInstance(params map[string]string) (DeleteInstanceResponse, error)
 	JoinSecurityGroup(params map[string]string) (JoinSecurityGroupResponse, error)
@@ -357,10 +356,4 @@ func (op *InstanceOperator) LeaveSecurityGroup(params map[string]string) (LeaveS
 	log.Debug(result)
 	json.Unmarshal([]byte(result), &resp)
 	return resp, nil
-}
-
-func (op *InstanceOperator) DescribeInstanceTypes(params map[string]string) (DescribeInstanceTypesResponse, error) {
-	var resp DescribeInstanceTypesResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp);
-	return resp, err
 }
