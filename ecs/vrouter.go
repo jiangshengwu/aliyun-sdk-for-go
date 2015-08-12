@@ -1,4 +1,5 @@
 package ecs
+
 import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type VRouterService interface {
@@ -27,13 +28,13 @@ type VRouterSetTypes struct {
 }
 
 type VRouterSetType struct {
-	VRouterId     string `json:"VRouterId"`
-	RegionId      string `json:"RegionId"`
-	VpcId         string `json:"VpcId"`
+	VRouterId     string        `json:"VRouterId"`
+	RegionId      string        `json:"RegionId"`
+	VpcId         string        `json:"VpcId"`
 	RouteTableIds RouteTableIds `json:"RouteTableIds"`
-	VRouterName   string `json:"VRouterName"`
-	Description   string `json:"Description"`
-	CreationTime  string `json:"CreationTime"`
+	VRouterName   string        `json:"VRouterName"`
+	Description   string        `json:"Description"`
+	CreationTime  string        `json:"CreationTime"`
 }
 
 type RouteTableIds struct {
@@ -52,12 +53,12 @@ type ModifyVRouterAttributeResponse struct {
 
 func (op *VRouterOperator) DescribeVRouters(params map[string]string) (DescribeVRoutersResponse, error) {
 	var resp DescribeVRoutersResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp);
+	err := op.Common.Request(GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *VRouterOperator) ModifyVRouterAttribute(params map[string]string) (ModifyVRouterAttributeResponse, error) {
 	var resp ModifyVRouterAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp);
+	err := op.Common.Request(GetFuncName(1), params, &resp)
 	return resp, err
 }

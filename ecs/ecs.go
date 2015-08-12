@@ -6,29 +6,30 @@ import (
 	"strings"
 	"time"
 
+	"encoding/json"
+
 	"github.com/jiangshengwu/aliyun-sdk-for-go/log"
 	"github.com/jiangshengwu/aliyun-sdk-for-go/util"
-	"encoding/json"
 )
 
 const (
-// ECS API Host
+	// ECS API Host
 	ECSHost string = "https://ecs.aliyuncs.com/?"
 
-// All ECS APIs only support GET method
+	// All ECS APIs only support GET method
 	ECSHttpMethod = "GET"
 
-// SDK only supports JSON format
+	// SDK only supports JSON format
 	Format = "JSON"
 
-	Version = "2014-05-26"
-	SignatureMethod = "HMAC-SHA1"
+	Version          = "2014-05-26"
+	SignatureMethod  = "HMAC-SHA1"
 	SignatureVersion = "1.0"
 )
 
 // struct for ECS client
 type EcsClient struct {
-	Common         *CommonParam
+	Common *CommonParam
 
 	// Access to API call from this client
 	Region         RegionService

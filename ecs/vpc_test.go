@@ -1,8 +1,8 @@
 package ecs
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 	"time"
 )
 
@@ -11,9 +11,9 @@ func TestCreateVpc(t *testing.T) {
 
 	// test create vpc
 	createResp, err := cli.Vpc.CreateVpc(map[string]string{
-		"RegionId":"cn-beijing",
-		"CidrBlock":"10.0.0.0/8",
-		"VpcName":"testvpc",
+		"RegionId":    "cn-beijing",
+		"CidrBlock":   "10.0.0.0/8",
+		"VpcName":     "testvpc",
 		"Description": "testvpc",
 	})
 	if err != nil {
@@ -64,8 +64,8 @@ func TestCreateVpc(t *testing.T) {
 	fmt.Println(descrVSwitchRsp)
 
 	descResp, err := cli.Vpc.DescribeVpcs(map[string]string{
-		"RegionId":"cn-beijing",
-	});
+		"RegionId": "cn-beijing",
+	})
 	if err != nil {
 		t.Errorf("runtime exception:%s", err)
 		return

@@ -1,4 +1,5 @@
 package ecs
+
 import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type VSwitchService interface {
@@ -67,7 +68,7 @@ type VSwitchType struct {
 	Status                  string `json:"Status"`
 	CidrBlock               string `json:"CidrBlock"`
 	ZoneId                  string `json:"ZoneId"`
-	AvailableIpAddressCount int `json:"AvailableIpAddressCount"`
+	AvailableIpAddressCount int    `json:"AvailableIpAddressCount"`
 	Description             string `json:"Description"`
 	VSwitchName             string `json:"VSwitchName"`
 	CreationTime            string `json:"CreationTime"`
@@ -75,24 +76,24 @@ type VSwitchType struct {
 
 func (op *VSwitchOperator) CreateVSwitch(params map[string]string) (CreateVSwitchResponse, error) {
 	var resp CreateVSwitchResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp);
+	err := op.Common.Request(GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *VSwitchOperator) DeleteVSwitch(params map[string]string) (DeleteVSwitchResponse, error) {
 	var resp DeleteVSwitchResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp);
+	err := op.Common.Request(GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *VSwitchOperator) DescribeVSwitches(params map[string]string) (DescribeVSwitchesResponse, error) {
 	var resp DescribeVSwitchesResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp);
+	err := op.Common.Request(GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *VSwitchOperator) ModifyVSwitchAttribute(params map[string]string) (ModifyVSwitchAttributeResponse, error) {
 	var resp ModifyVSwitchAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp);
+	err := op.Common.Request(GetFuncName(1), params, &resp)
 	return resp, err
 }

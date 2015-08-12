@@ -1,4 +1,5 @@
 package ecs
+
 import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type RouteService interface {
@@ -50,11 +51,11 @@ type RouteTableSetTypes struct {
 }
 
 type RouteTableSetType struct {
-	VRouterId      string `json:"VRouterId"`
-	RouteTableId   string `json:"RouteTableId"`
+	VRouterId      string             `json:"VRouterId"`
+	RouteTableId   string             `json:"RouteTableId"`
 	RouteEntrys    RouteEntrySetTypes `json:"RouteEntrys"`
-	RouteTableType string `json:"RouteTableType"`
-	CreationTime   string `json:"CreationTime"`
+	RouteTableType string             `json:"RouteTableType"`
+	CreationTime   string             `json:"CreationTime"`
 }
 
 type RouteEntrySetTypes struct {
@@ -71,18 +72,18 @@ type RouteEntrySetType struct {
 
 func (op *RouteOperator) CreateRouteEntry(params map[string]string) (CreateRouteEntryResponse, error) {
 	var resp CreateRouteEntryResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp);
+	err := op.Common.Request(GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *RouteOperator) DeleteRouteEntry(params map[string]string) (DeleteRouteEntryResponse, error) {
 	var resp DeleteRouteEntryResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp);
+	err := op.Common.Request(GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *RouteOperator) DescribeRouteTables(params map[string]string) (DescribeRouteTablesResponse, error) {
 	var resp DescribeRouteTablesResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp);
+	err := op.Common.Request(GetFuncName(1), params, &resp)
 	return resp, err
 }
