@@ -17,7 +17,7 @@ func TestCreateVpc(t *testing.T) {
 		"Description": "testvpc",
 	})
 	if err != nil {
-		t.Errorf("runtime exception:", err)
+		t.Errorf("runtime exception:%s", err)
 		return
 	}
 	fmt.Println(createResp)
@@ -28,7 +28,7 @@ func TestCreateVpc(t *testing.T) {
 			"VpcId": createResp.VpcId,
 		})
 		if err != nil {
-			t.Errorf("runtime exception:", err)
+			t.Errorf("runtime exception:%s", err)
 			return
 		}
 		fmt.Println(deleteResp)
@@ -39,7 +39,7 @@ func TestCreateVpc(t *testing.T) {
 		"RegionId": "cn-beijing",
 	})
 	if err != nil {
-		t.Errorf("runtime exception:", err)
+		t.Errorf("runtime exception:%s", err)
 		return
 	}
 	fmt.Println(descrVRouterRsp)
@@ -48,7 +48,7 @@ func TestCreateVpc(t *testing.T) {
 		"VRouterId": descrVRouterRsp.VRouters.VRouter[0].VRouterId,
 	})
 	if err != nil {
-		t.Errorf("runtime exception:", err)
+		t.Errorf("runtime exception:%s", err)
 		return
 	}
 	fmt.Println(descrRouteTableRsp)
@@ -58,7 +58,7 @@ func TestCreateVpc(t *testing.T) {
 		"VpcId": createResp.VpcId,
 	})
 	if err != nil {
-		t.Errorf("runtime exception:", err)
+		t.Errorf("runtime exception:%s", err)
 		return
 	}
 	fmt.Println(descrVSwitchRsp)
@@ -67,7 +67,7 @@ func TestCreateVpc(t *testing.T) {
 		"RegionId":"cn-beijing",
 	});
 	if err != nil {
-		t.Errorf("runtime exception:", err)
+		t.Errorf("runtime exception:%s", err)
 		return
 	}
 	fmt.Println(descResp)

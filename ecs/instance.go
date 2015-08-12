@@ -188,20 +188,6 @@ type LeaveSecurityGroupResponse struct {
 	util.ErrorResponse
 }
 
-type DescribeInstanceTypesResponse struct {
-	InstanceTypes InstanceTypeItemTypes `json:"InstanceTypes"`
-}
-
-type InstanceTypeItemTypes struct {
-	InstanceType []InstanceTypeItemType `json:"InstanceType"`
-}
-
-type InstanceTypeItemType struct {
-	InstanceTypeId string     `json:"InstanceTypeId"`
-	CpuCoreCount   int        `json:"CpuCoreCount"`
-	MemorySize     float64    `json:"MemorySize"`
-}
-
 func (op *InstanceOperator) CreateInstance(params map[string]string) (CreateInstanceResponse, error) {
 	var resp CreateInstanceResponse
 	action := GetFuncName(1)
