@@ -8,6 +8,33 @@ import (
 )
 
 type InstanceService interface {
+	/**
+	 * RegionId(required):
+	 * ZoneId(optional):
+	 * ImageId(required):
+	 * InstanceType(required): func DescribeInstanceTypes
+	 * SecurityGroupId(required):
+	 * InstanceName(optional):
+	 * Description(optional):
+	 * InternetChargeType(optional): 网络计费类型，按流量计费还是按固定带宽计费: PayByBandwidth|PayByTraffic，默认PayByBandwidth
+	 * InternetMaxBandwidthIn(optional):
+	 * InternetMaxBandwidthOut(optional):
+	 * HostName(optional):
+	 * Password(optional):
+	 * IoOptimized(optional): IO优化, none|optimized, 默认none
+	 * SystemDisk.Category(optional):
+	 * SystemDisk.DiskName(optional):
+	 * SystemDisk.Description(optional):
+	 * DataDisk.n.Size(optional):
+	 * DataDisk.n.Category(optional):
+	 * DataDisk.n.SnapshotId(optional):
+	 * DataDisk.n.DiskName(optional):
+	 * DataDisk.n.Description(optional):
+	 * DataDisk.n.Device(optional):
+	 * DataDisk.n.DeleteWithInstance(optional):
+	 * VSwitchId(optional): 如果是创建 VPC 类型的实例，需要指定交换机的 ID
+	 * PrivateIpAddress(optional):
+	 */
 	CreateInstance(params map[string]string) (CreateInstanceResponse, error)
 	StartInstance(params map[string]string) (StartInstanceResponse, error)
 	StopInstance(params map[string]string) (StopInstanceResponse, error)
@@ -16,6 +43,7 @@ type InstanceService interface {
 	ModifyInstanceVpcAttribute(params map[string]string) (ModifyInstanceVpcAttributeResponse, error)
 	DescribeInstanceStatus(params map[string]string) (DescribeInstanceStatusResponse, error)
 	DescribeInstanceAttribute(params map[string]string) (DescribeInstanceAttributeStatusResponse, error)
+	DescribeInstanceTypes(params map[string]string) (DescribeInstanceTypesResponse, error)
 	DescribeInstances(params map[string]string) (DescribeInstancesResponse, error)
 	DeleteInstance(params map[string]string) (DeleteInstanceResponse, error)
 	JoinSecurityGroup(params map[string]string) (JoinSecurityGroupResponse, error)
@@ -97,6 +125,10 @@ type InstanceAttributesType struct {
 	InstanceNetworkType     string                  `json:"InstanceNetworkType"`
 	VpcAttributes           VpcAttributesType       `json:"VpcAttributes"`
 	EipAddress              EipAddressAssociateType `json:"EipAddress"`
+	InstanceChargeType      string                  `json:"InstanceChargeType"` // PrePaid：预付费，即包年包月; PostPaid：后付费，即按量付费
+	DeviceAvailable         string                  `json:"DeviceAvailable"`    // 实例是否还可以挂载磁盘
+	IoOptimized             string                  `json:"IoOptimized"`        // 是否是 IO 优化型实例
+	ExpiredTime             string                  `json:"ExpiredTime"`        // 过期时间，按照ISO8601标准表示，并需要使用UTC时间。格式为：YYYY-MM-DDThh:mmZ
 }
 
 // See http://docs.aliyun.com/?spm=5176.775974174.2.4.BYfRJ2#/ecs/open-api/datatype&vpcattributestype
@@ -155,6 +187,20 @@ type JoinSecurityGroupResponse struct {
 // Response struct for LeaveSecurityGroup
 type LeaveSecurityGroupResponse struct {
 	util.ErrorResponse
+}
+
+type DescribeInstanceTypesResponse struct {
+	InstanceTypes InstanceTypeItemTypes `json:"InstanceTypes"`
+}
+
+type InstanceTypeItemTypes struct {
+	InstanceType []InstanceTypeItemType `json:"InstanceType"`
+}
+
+type InstanceTypeItemType struct {
+	InstanceTypeId string     `json:"InstanceTypeId"`
+	CpuCoreCount   int        `json:"CpuCoreCount"`
+	MemorySize     float64    `json:"MemorySize"`
 }
 
 func (op *InstanceOperator) CreateInstance(params map[string]string) (CreateInstanceResponse, error) {
@@ -311,4 +357,10 @@ func (op *InstanceOperator) LeaveSecurityGroup(params map[string]string) (LeaveS
 	log.Debug(result)
 	json.Unmarshal([]byte(result), &resp)
 	return resp, nil
+}
+
+func (op *InstanceOperator) DescribeInstanceTypes(params map[string]string) (DescribeInstanceTypesResponse, error) {
+	var resp DescribeInstanceTypesResponse
+	err := op.Common.Request(GetFuncName(1), params, &resp);
+	return resp, err
 }
