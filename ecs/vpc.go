@@ -53,7 +53,7 @@ type VpcSetType struct {
 type DescribeVpcsResponse struct {
 	util.ErrorResponse
 	util.PageResponse
-	Vpcs VpcSetTypes `json:Vpcs`
+	Vpcs VpcSetTypes `json:"Vpcs"`
 }
 
 type ModifyVpcAttributeResponse struct {
