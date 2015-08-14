@@ -1,11 +1,6 @@
 package ecs
 
-import (
-	"encoding/json"
-
-	"github.com/jiangshengwu/aliyun-sdk-for-go/log"
-	"github.com/jiangshengwu/aliyun-sdk-for-go/util"
-)
+import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type OtherService interface {
 	DescribeInstanceTypes(params map[string]string) (DescribeInstanceTypesResponse, error)
@@ -34,13 +29,6 @@ type InstanceTypeItemType struct {
 
 func (op *OtherOperator) DescribeInstanceTypes(params map[string]string) (DescribeInstanceTypesResponse, error) {
 	var resp DescribeInstanceTypesResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return DescribeInstanceTypesResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }

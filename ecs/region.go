@@ -1,11 +1,6 @@
 package ecs
 
-import (
-	"encoding/json"
-
-	"github.com/jiangshengwu/aliyun-sdk-for-go/log"
-	"github.com/jiangshengwu/aliyun-sdk-for-go/util"
-)
+import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type RegionService interface {
 	DescribeRegions(params map[string]string) (DescribeRegionsResponse, error)
@@ -62,26 +57,12 @@ type AvailableDiskCategoriesType struct {
 
 func (op *RegionOperator) DescribeRegions(params map[string]string) (DescribeRegionsResponse, error) {
 	var resp DescribeRegionsResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return DescribeRegionsResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *RegionOperator) DescribeZones(params map[string]string) (DescribeZonesResponse, error) {
 	var resp DescribeZonesResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return DescribeZonesResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }

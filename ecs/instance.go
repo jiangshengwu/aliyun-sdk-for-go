@@ -1,11 +1,6 @@
 package ecs
 
-import (
-	"encoding/json"
-
-	"github.com/jiangshengwu/aliyun-sdk-for-go/log"
-	"github.com/jiangshengwu/aliyun-sdk-for-go/util"
-)
+import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type InstanceService interface {
 	/**
@@ -42,7 +37,7 @@ type InstanceService interface {
 	ModifyInstanceAttribute(params map[string]string) (ModifyInstanceAttributeResponse, error)
 	ModifyInstanceVpcAttribute(params map[string]string) (ModifyInstanceVpcAttributeResponse, error)
 	DescribeInstanceStatus(params map[string]string) (DescribeInstanceStatusResponse, error)
-	DescribeInstanceAttribute(params map[string]string) (DescribeInstanceAttributeStatusResponse, error)
+	DescribeInstanceAttribute(params map[string]string) (DescribeInstanceAttributeResponse, error)
 	DescribeInstances(params map[string]string) (DescribeInstancesResponse, error)
 	DeleteInstance(params map[string]string) (DeleteInstanceResponse, error)
 	JoinSecurityGroup(params map[string]string) (JoinSecurityGroupResponse, error)
@@ -125,8 +120,8 @@ type InstanceAttributesType struct {
 	VpcAttributes           VpcAttributesType       `json:"VpcAttributes"`
 	EipAddress              EipAddressAssociateType `json:"EipAddress"`
 	InstanceChargeType      string                  `json:"InstanceChargeType"` // PrePaid：预付费，即包年包月; PostPaid：后付费，即按量付费
-	DeviceAvailable         string                  `json:"DeviceAvailable"`    // 实例是否还可以挂载磁盘
-	IoOptimized             string                  `json:"IoOptimized"`        // 是否是 IO 优化型实例
+	DeviceAvailable         bool                    `json:"DeviceAvailable"`    // 实例是否还可以挂载磁盘
+	IoOptimized             bool                    `json:"IoOptimized"`        // 是否是 IO 优化型实例
 	ExpiredTime             string                  `json:"ExpiredTime"`        // 过期时间，按照ISO8601标准表示，并需要使用UTC时间。格式为：YYYY-MM-DDThh:mmZ
 }
 
@@ -142,12 +137,12 @@ type VpcAttributesType struct {
 type EipAddressAssociateType struct {
 	AllocationId       string `json:"AllocationId"`
 	IpAddress          string `json:"IpAddress"`
-	Bandwidth          string `json:"Bandwidth"`
+	Bandwidth          int    `json:"Bandwidth"`
 	InternetChargeType string `json:"InternetChargeType"`
 }
 
-// Response struct for DescribeInstanceAttributeStatus
-type DescribeInstanceAttributeStatusResponse struct {
+// Response struct for DescribeInstanceAttribute
+type DescribeInstanceAttributeResponse struct {
 	util.ErrorResponse
 	InstanceAttributesType
 }
@@ -190,156 +185,72 @@ type LeaveSecurityGroupResponse struct {
 
 func (op *InstanceOperator) CreateInstance(params map[string]string) (CreateInstanceResponse, error) {
 	var resp CreateInstanceResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return CreateInstanceResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *InstanceOperator) StartInstance(params map[string]string) (StartInstanceResponse, error) {
 	var resp StartInstanceResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return StartInstanceResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *InstanceOperator) StopInstance(params map[string]string) (StopInstanceResponse, error) {
 	var resp StopInstanceResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return StopInstanceResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *InstanceOperator) RebootInstance(params map[string]string) (RebootInstanceResponse, error) {
 	var resp RebootInstanceResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return RebootInstanceResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *InstanceOperator) ModifyInstanceAttribute(params map[string]string) (ModifyInstanceAttributeResponse, error) {
 	var resp ModifyInstanceAttributeResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return ModifyInstanceAttributeResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *InstanceOperator) ModifyInstanceVpcAttribute(params map[string]string) (ModifyInstanceVpcAttributeResponse, error) {
 	var resp ModifyInstanceVpcAttributeResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return ModifyInstanceVpcAttributeResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *InstanceOperator) DescribeInstanceStatus(params map[string]string) (DescribeInstanceStatusResponse, error) {
 	var resp DescribeInstanceStatusResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return DescribeInstanceStatusResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
-func (op *InstanceOperator) DescribeInstanceAttribute(params map[string]string) (DescribeInstanceAttributeStatusResponse, error) {
-	var resp DescribeInstanceAttributeStatusResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return DescribeInstanceAttributeStatusResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+func (op *InstanceOperator) DescribeInstanceAttribute(params map[string]string) (DescribeInstanceAttributeResponse, error) {
+	var resp DescribeInstanceAttributeResponse
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *InstanceOperator) DescribeInstances(params map[string]string) (DescribeInstancesResponse, error) {
 	var resp DescribeInstancesResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return DescribeInstancesResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *InstanceOperator) DeleteInstance(params map[string]string) (DeleteInstanceResponse, error) {
 	var resp DeleteInstanceResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return DeleteInstanceResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *InstanceOperator) JoinSecurityGroup(params map[string]string) (JoinSecurityGroupResponse, error) {
 	var resp JoinSecurityGroupResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return JoinSecurityGroupResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *InstanceOperator) LeaveSecurityGroup(params map[string]string) (LeaveSecurityGroupResponse, error) {
 	var resp LeaveSecurityGroupResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return LeaveSecurityGroupResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }

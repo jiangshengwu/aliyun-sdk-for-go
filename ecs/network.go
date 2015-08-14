@@ -1,11 +1,6 @@
 package ecs
 
-import (
-	"encoding/json"
-
-	"github.com/jiangshengwu/aliyun-sdk-for-go/log"
-	"github.com/jiangshengwu/aliyun-sdk-for-go/util"
-)
+import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type NetworkService interface {
 	AllocatePublicIpAddress(params map[string]string) (AllocatePublicIpAddressResponse, error)
@@ -86,104 +81,48 @@ type ReleaseEipAddressResponse struct {
 
 func (op *NetworkOperator) AllocatePublicIpAddress(params map[string]string) (AllocatePublicIpAddressResponse, error) {
 	var resp AllocatePublicIpAddressResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return AllocatePublicIpAddressResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *NetworkOperator) ModifyInstanceNetworkSpec(params map[string]string) (ModifyInstanceNetworkSpecResponse, error) {
 	var resp ModifyInstanceNetworkSpecResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return ModifyInstanceNetworkSpecResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *NetworkOperator) AllocateEipAddress(params map[string]string) (AllocateEipAddressResponse, error) {
 	var resp AllocateEipAddressResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return AllocateEipAddressResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *NetworkOperator) AssociateEipAddress(params map[string]string) (AssociateEipAddressResponse, error) {
 	var resp AssociateEipAddressResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return AssociateEipAddressResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *NetworkOperator) DescribeEipAddresses(params map[string]string) (DescribeEipAddressesResponse, error) {
 	var resp DescribeEipAddressesResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return DescribeEipAddressesResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *NetworkOperator) ModifyEipAddressAttribute(params map[string]string) (ModifyEipAddressAttributeResponse, error) {
 	var resp ModifyEipAddressAttributeResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return ModifyEipAddressAttributeResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *NetworkOperator) UnassociateEipAddress(params map[string]string) (UnassociateEipAddressResponse, error) {
 	var resp UnassociateEipAddressResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return UnassociateEipAddressResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *NetworkOperator) ReleaseEipAddress(params map[string]string) (ReleaseEipAddressResponse, error) {
 	var resp ReleaseEipAddressResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return ReleaseEipAddressResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }

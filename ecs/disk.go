@@ -1,11 +1,6 @@
 package ecs
 
-import (
-	"encoding/json"
-
-	"github.com/jiangshengwu/aliyun-sdk-for-go/log"
-	"github.com/jiangshengwu/aliyun-sdk-for-go/util"
-)
+import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type DiskService interface {
 	CreateDisk(params map[string]string) (CreateDiskResponse, error)
@@ -109,130 +104,60 @@ type ResizeDiskResponse struct {
 
 func (op *DiskOperator) CreateDisk(params map[string]string) (CreateDiskResponse, error) {
 	var resp CreateDiskResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return CreateDiskResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *DiskOperator) DescribeDisks(params map[string]string) (DescribeDisksResponse, error) {
 	var resp DescribeDisksResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return DescribeDisksResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *DiskOperator) AttachDisk(params map[string]string) (AttachDiskResponse, error) {
 	var resp AttachDiskResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return AttachDiskResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *DiskOperator) DetachDisk(params map[string]string) (DetachDiskResponse, error) {
 	var resp DetachDiskResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return DetachDiskResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *DiskOperator) ModifyDiskAttribute(params map[string]string) (ModifyDiskAttributeResponse, error) {
 	var resp ModifyDiskAttributeResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return ModifyDiskAttributeResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *DiskOperator) DeleteDisk(params map[string]string) (DeleteDiskResponse, error) {
 	var resp DeleteDiskResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return DeleteDiskResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *DiskOperator) ReInitDisk(params map[string]string) (ReInitDiskResponse, error) {
 	var resp ReInitDiskResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return ReInitDiskResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *DiskOperator) ResetDisk(params map[string]string) (ResetDiskResponse, error) {
 	var resp ResetDiskResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return ResetDiskResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *DiskOperator) ReplaceSystemDisk(params map[string]string) (ReplaceSystemDiskResponse, error) {
 	var resp ReplaceSystemDiskResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return ReplaceSystemDiskResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *DiskOperator) ResizeDisk(params map[string]string) (ResizeDiskResponse, error) {
 	var resp ResizeDiskResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return ResizeDiskResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }

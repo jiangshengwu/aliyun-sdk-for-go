@@ -1,11 +1,6 @@
 package ecs
 
-import (
-	"encoding/json"
-
-	"github.com/jiangshengwu/aliyun-sdk-for-go/log"
-	"github.com/jiangshengwu/aliyun-sdk-for-go/util"
-)
+import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type MonitorService interface {
 	DescribeInstanceMonitorData(params map[string]string) (DescribeInstanceMonitorDataResponse, error)
@@ -89,39 +84,18 @@ type DiskMonitorDataType struct {
 
 func (op *MonitorOperator) DescribeInstanceMonitorData(params map[string]string) (DescribeInstanceMonitorDataResponse, error) {
 	var resp DescribeInstanceMonitorDataResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return DescribeInstanceMonitorDataResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *MonitorOperator) DescribeEipMonitorData(params map[string]string) (DescribeEipMonitorDataResponse, error) {
 	var resp DescribeEipMonitorDataResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return DescribeEipMonitorDataResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *MonitorOperator) DescribeDiskMonitorData(params map[string]string) (DescribeDiskMonitorDataResponse, error) {
 	var resp DescribeDiskMonitorDataResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return DescribeDiskMonitorDataResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }

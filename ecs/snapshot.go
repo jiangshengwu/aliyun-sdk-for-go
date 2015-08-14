@@ -1,11 +1,6 @@
 package ecs
 
-import (
-	"encoding/json"
-
-	"github.com/jiangshengwu/aliyun-sdk-for-go/log"
-	"github.com/jiangshengwu/aliyun-sdk-for-go/util"
-)
+import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type SnapshotService interface {
 	CreateSnapshot(params map[string]string) (CreateSnapshotResponse, error)
@@ -86,65 +81,30 @@ type AutoSnapshotPolicyType struct {
 
 func (op *SnapshotOperator) CreateSnapshot(params map[string]string) (CreateSnapshotResponse, error) {
 	var resp CreateSnapshotResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return CreateSnapshotResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *SnapshotOperator) DeleteSnapshot(params map[string]string) (DeleteSnapshotResponse, error) {
 	var resp DeleteSnapshotResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return DeleteSnapshotResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *SnapshotOperator) DescribeSnapshots(params map[string]string) (DescribeSnapshotsResponse, error) {
 	var resp DescribeSnapshotsResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return DescribeSnapshotsResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *SnapshotOperator) ModifyAutoSnapshotPolicy(params map[string]string) (ModifyAutoSnapshotPolicyResponse, error) {
 	var resp ModifyAutoSnapshotPolicyResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return ModifyAutoSnapshotPolicyResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }
 
 func (op *SnapshotOperator) DescribeAutoSnapshotPolicy(params map[string]string) (DescribeAutoSnapshotPolicyResponse, error) {
 	var resp DescribeAutoSnapshotPolicyResponse
-	action := GetFuncName(1)
-	p := op.Common.ResolveAllParams(action, params)
-	result, err := RequestAPI(p)
-	if err != nil {
-		return DescribeAutoSnapshotPolicyResponse{}, err
-	}
-	log.Debug(result)
-	json.Unmarshal([]byte(result), &resp)
-	return resp, nil
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
 }

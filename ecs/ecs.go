@@ -151,6 +151,9 @@ func (c *CommonParam) Request(action string, params map[string]string, response 
 		return err
 	}
 	log.Debug(result)
-	json.Unmarshal([]byte(result), response)
+	err = json.Unmarshal([]byte(result), response)
+	if err != nil {
+		log.Error(err)
+	}
 	return nil
 }
