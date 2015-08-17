@@ -42,8 +42,8 @@ type InstanceService interface {
 	DeleteInstance(params map[string]string) (DeleteInstanceResponse, error)
 	JoinSecurityGroup(params map[string]string) (JoinSecurityGroupResponse, error)
 	LeaveSecurityGroup(params map[string]string) (LeaveSecurityGroupResponse, error)
-	DescribeInstanceVncUrl(params map[string]string) (DescribeInstanceVncUrlResponse,error)
-	ModifyInstanceVncPasswd(params map[string]string) (ModifyInstanceVncPasswdResponse,error)
+	DescribeInstanceVncUrl(params map[string]string) (DescribeInstanceVncUrlResponse, error)
+	ModifyInstanceVncPasswd(params map[string]string) (ModifyInstanceVncPasswdResponse, error)
 }
 
 type InstanceOperator struct {
@@ -270,13 +270,13 @@ func (op *InstanceOperator) LeaveSecurityGroup(params map[string]string) (LeaveS
 	return resp, err
 }
 
-func (op *InstanceOperator) DescribeInstanceVncUrl(params map[string]string) (DescribeInstanceVncUrlResponse,error) {
+func (op *InstanceOperator) DescribeInstanceVncUrl(params map[string]string) (DescribeInstanceVncUrlResponse, error) {
 	var resp DescribeInstanceVncUrlResponse
 	err := op.Common.Request(GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *InstanceOperator) ModifyInstanceVncPasswd(params map[string]string) (ModifyInstanceVncPasswdResponse,error){
+func (op *InstanceOperator) ModifyInstanceVncPasswd(params map[string]string) (ModifyInstanceVncPasswdResponse, error){
 	var resp ModifyInstanceVncPasswdResponse
 	err := op.Common.Request(GetFuncName(1), params, &resp)
 	return resp, err
