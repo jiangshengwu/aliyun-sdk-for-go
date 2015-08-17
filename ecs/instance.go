@@ -276,7 +276,7 @@ func (op *InstanceOperator) DescribeInstanceVncUrl(params map[string]string) (De
 	return resp, err
 }
 
-func (op *InstanceOperator) ModifyInstanceVncPasswd(params map[string]string) (ModifyInstanceVncPasswdResponse, error){
+func (op *InstanceOperator) ModifyInstanceVncPasswd(params map[string]string) (ModifyInstanceVncPasswdResponse, error) {
 	var resp ModifyInstanceVncPasswdResponse
 	err := op.Common.Request(GetFuncName(1), params, &resp)
 	return resp, err
