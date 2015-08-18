@@ -197,7 +197,6 @@ type ModifyInstanceVncPasswdResponse struct {
 	util.ErrorResponse
 }
 
-
 func (op *InstanceOperator) CreateInstance(params map[string]string) (CreateInstanceResponse, error) {
 	var resp CreateInstanceResponse
 	err := op.Common.Request(GetFuncName(1), params, &resp)
