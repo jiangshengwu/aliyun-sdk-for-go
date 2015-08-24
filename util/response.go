@@ -19,3 +19,7 @@ type PageResponse struct {
 	PageNumber int `json:"PageNumber"`
 	PageSize   int `json:"PageSize"`
 }
+
+type VncUrlResponse struct {
+	VncUrl string `json:"VncUrl"`
+}

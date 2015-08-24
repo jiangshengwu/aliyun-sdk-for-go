@@ -188,8 +188,7 @@ type LeaveSecurityGroupResponse struct {
 // Response struct for DescribeInstanceVncUrl
 type DescribeInstanceVncUrlResponse struct {
 	util.ErrorResponse
-	util.PageResponse
-	AllInstances Instances `json:"Instances"`
+	util.VncUrlResponse
 }
 
 // Response struct for ModifyInstanceVncPasswd
