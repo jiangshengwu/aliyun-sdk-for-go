@@ -2,6 +2,8 @@ package ecs
 
 import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
+//import "github.com/LiuJunlang/aliyun-sdk-for-go/util"
+
 type InstanceService interface {
 	/**
 	 * RegionId(required):
@@ -188,8 +190,7 @@ type LeaveSecurityGroupResponse struct {
 // Response struct for DescribeInstanceVncUrl
 type DescribeInstanceVncUrlResponse struct {
 	util.ErrorResponse
-	util.PageResponse
-	AllInstances Instances `json:"Instances"`
+	VncUrl string `json:"VncUrl"`
 }
 
 // Response struct for ModifyInstanceVncPasswd
