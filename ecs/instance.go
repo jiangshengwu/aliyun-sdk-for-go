@@ -2,6 +2,8 @@ package ecs
 
 import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
+//import "github.com/LiuJunlang/aliyun-sdk-for-go/util"
+
 type InstanceService interface {
 	/**
 	 * RegionId(required):
@@ -42,6 +44,8 @@ type InstanceService interface {
 	DeleteInstance(params map[string]string) (DeleteInstanceResponse, error)
 	JoinSecurityGroup(params map[string]string) (JoinSecurityGroupResponse, error)
 	LeaveSecurityGroup(params map[string]string) (LeaveSecurityGroupResponse, error)
+	DescribeInstanceVncUrl(params map[string]string) (DescribeInstanceVncUrlResponse, error)
+	ModifyInstanceVncPasswd(params map[string]string) (ModifyInstanceVncPasswdResponse, error)
 }
 
 type InstanceOperator struct {
@@ -183,6 +187,17 @@ type LeaveSecurityGroupResponse struct {
 	util.ErrorResponse
 }
 
+// Response struct for DescribeInstanceVncUrl
+type DescribeInstanceVncUrlResponse struct {
+	util.ErrorResponse
+	VncUrl string `json:"VncUrl"`
+}
+
+// Response struct for ModifyInstanceVncPasswd
+type ModifyInstanceVncPasswdResponse struct {
+	util.ErrorResponse
+}
+
 func (op *InstanceOperator) CreateInstance(params map[string]string) (CreateInstanceResponse, error) {
 	var resp CreateInstanceResponse
 	err := op.Common.Request(GetFuncName(1), params, &resp)
@@ -251,6 +266,18 @@ func (op *InstanceOperator) JoinSecurityGroup(params map[string]string) (JoinSec
 
 func (op *InstanceOperator) LeaveSecurityGroup(params map[string]string) (LeaveSecurityGroupResponse, error) {
 	var resp LeaveSecurityGroupResponse
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
+}
+
+func (op *InstanceOperator) DescribeInstanceVncUrl(params map[string]string) (DescribeInstanceVncUrlResponse, error) {
+	var resp DescribeInstanceVncUrlResponse
+	err := op.Common.Request(GetFuncName(1), params, &resp)
+	return resp, err
+}
+
+func (op *InstanceOperator) ModifyInstanceVncPasswd(params map[string]string) (ModifyInstanceVncPasswdResponse, error) {
+	var resp ModifyInstanceVncPasswdResponse
 	err := op.Common.Request(GetFuncName(1), params, &resp)
 	return resp, err
 }
