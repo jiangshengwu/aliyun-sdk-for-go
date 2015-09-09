@@ -48,14 +48,14 @@ type DiskItemType struct {
 	ImageId            string         `json:"ImageId"`
 	SourceSnapshotId   string         `json:"SourceSnapshotId"`
 	ProductCode        string         `json:"ProductCode"`
-	Portable           string         `json:"Portable"`
+	Portable           bool           `json:"Portable"`
 	Status             string         `json:"Status"`
 	AllOperationLocks  OperationLocks `json:"OperationLocks"`
 	InstanceId         string         `json:"InstanceId"`
 	Device             string         `json:"Device"`
-	DeleteWithInstance string         `json:"DeleteWithInstance"`
-	DeleteAutoSnapshot string         `json:"DeleteAutoSnapshot"`
-	EnableAutoSnapshot string         `json:"EnableAutoSnapshot"`
+	DeleteWithInstance bool           `json:"DeleteWithInstance"`
+	DeleteAutoSnapshot bool           `json:"DeleteAutoSnapshot"`
+	EnableAutoSnapshot bool           `json:"EnableAutoSnapshot"`
 	CreationTime       string         `json:"CreationTime"`
 	AttachedTime       string         `json:"AttachedTime"`
 	DetachedTime       string         `json:"DetachedTime"`

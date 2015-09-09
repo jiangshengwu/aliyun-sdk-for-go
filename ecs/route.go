@@ -68,6 +68,7 @@ type RouteEntrySetType struct {
 	Type                 string `json:"Type"`
 	NextHopId            string `json:"NextHopId"`
 	Status               string `json:"Status"`
+	InstanceId           string `json:"InstanceId"`
 }
 
 func (op *RouteOperator) CreateRouteEntry(params map[string]string) (CreateRouteEntryResponse, error) {

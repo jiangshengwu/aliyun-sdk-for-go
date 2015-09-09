@@ -39,15 +39,24 @@ type VpcSetTypes struct {
 }
 
 type VpcSetType struct {
-	VpcId        string `json:"VpcId"`
-	RegionId     string `json:"RegionId"`
-	Status       string `json:"Status"`
-	VpcName      string `json:"VpcName"`
-	VSwitchIds   string `json:"VSwitchIds"`
-	CidrBlock    string `json:"CidrBlock"`
-	VRouterId    string `json:"VRouterId"`
-	Description  string `json:"Description"`
-	CreationTime string `json:"CreationTime"`
+	VpcId         string     `json:"VpcId"`
+	RegionId      string     `json:"RegionId"`
+	Status        string     `json:"Status"`
+	VpcName       string     `json:"VpcName"`
+	AllVSwitchIds VSwitchIds `json:"VSwitchIds"`
+	AllUserCidrs  UserCidrs  `json:"UserCidrs"`
+	CidrBlock     string     `json:"CidrBlock"`
+	VRouterId     string     `json:"VRouterId"`
+	Description   string     `json:"Description"`
+	CreationTime  string     `json:"CreationTime"`
+}
+
+type VSwitchIds struct {
+	VSwitchId []string `json:"VSwitchId"`
+}
+
+type UserCidrs struct {
+	UserCidr []string `json:"UserCidr"`
 }
 
 type DescribeVpcsResponse struct {

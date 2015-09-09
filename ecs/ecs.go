@@ -32,19 +32,19 @@ type EcsClient struct {
 	Common *CommonParam
 
 	// Access to API call from this client
-	Region         RegionService
-	SecurityGroup  SecurityGroupService
-	Instance       InstanceService
-	Other          OtherService
-	Image          ImageService
-	Snapshot       SnapshotService
-	Disk           DiskService
-	Network        NetworkService
-	Monitor        MonitorService
-	Vpc            VpcService
-	VRouterService VRouterService
-	VSwitchService VSwitchService
-	RouteService   RouteService
+	Region        RegionService
+	SecurityGroup SecurityGroupService
+	Instance      InstanceService
+	Other         OtherService
+	Image         ImageService
+	Snapshot      SnapshotService
+	Disk          DiskService
+	Network       NetworkService
+	Monitor       MonitorService
+	Vpc           VpcService
+	VRouter       VRouterService
+	VSwitch       VSwitchService
+	Route         RouteService
 }
 
 // Initialize an ECS client
@@ -73,9 +73,9 @@ func NewClient(accessKeyId string, accessKeySecret string, resourceOwnerAccount 
 	client.Network = &NetworkOperator{client.Common}
 	client.Monitor = &MonitorOperator{client.Common}
 	client.Vpc = &VpcOperator{client.Common}
-	client.VRouterService = &VRouterOperator{client.Common}
-	client.VSwitchService = &VSwitchOperator{client.Common}
-	client.RouteService = &RouteOperator{client.Common}
+	client.VRouter = &VRouterOperator{client.Common}
+	client.VSwitch = &VSwitchOperator{client.Common}
+	client.Route = &RouteOperator{client.Common}
 	return client
 }
 
