@@ -23,9 +23,6 @@ Implemented ECS API
 * Region
 * Monitor
 * Other
-
-TO DO
-
 * Vpc
 * VRouter
 * VSwitch
