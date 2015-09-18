@@ -55,7 +55,7 @@ type PermissionType struct {
 	DestGroupOwnerAccount   string `json:"DestGroupOwnerAccount"`
 	Policy                  string `json:"Policy"`
 	NicType                 string `json:"NicType"`
-	Priority                string `json:"Priority"`
+	Priority                int    `json:"Priority"`
 }
 
 // Response struct for DescribeSecurityGroupsResponse
