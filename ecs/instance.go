@@ -129,6 +129,12 @@ type InstanceAttributesType struct {
 	ExpiredTime             string                  `json:"ExpiredTime"`        // 过期时间，按照ISO8601标准表示，并需要使用UTC时间。格式为：YYYY-MM-DDThh:mmZ
 }
 
+// hack for the different returned type of IoOptimized
+type InstanceAttributesTypeExt struct {
+	InstanceAttributesType
+	IoOptimized string `json:"IoOptimized"` // 是否是 IO 优化型实例
+}
+
 // See http://docs.aliyun.com/?spm=5176.775974174.2.4.BYfRJ2#/ecs/open-api/datatype&vpcattributestype
 type VpcAttributesType struct {
 	VpcId            string           `json:"VpcId"`
@@ -148,7 +154,7 @@ type EipAddressAssociateType struct {
 // Response struct for DescribeInstanceAttribute
 type DescribeInstanceAttributeResponse struct {
 	util.ErrorResponse
-	InstanceAttributesType
+	InstanceAttributesTypeExt
 }
 
 // See http://docs.aliyun.com/?spm=5176.775974174.2.4.BYfRJ2#/ecs/open-api/datatype&securitygroupidsettype
