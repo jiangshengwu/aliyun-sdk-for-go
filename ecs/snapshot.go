@@ -33,7 +33,7 @@ type DescribeSnapshotsResponse struct {
 }
 
 type Snapshots struct {
-	AllSnapshot SnapshotType `json:"Snapshot"`
+	AllSnapshot []SnapshotType `json:"Snapshot"`
 }
 
 // See http://docs.aliyun.com/?spm=5176.775974174.2.4.BYfRJ2#/ecs/open-api/datatype&snapshottype
