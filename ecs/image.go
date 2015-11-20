@@ -40,7 +40,7 @@ type ImageType struct {
 	OSName                string             `json:"OSName"`
 	AllDiskDeviceMappings DiskDeviceMappings `json:"DiskDeviceMappings"`
 	ProductCode           string             `json:"ProductCode"`
-	IsSubscribed          string             `json:"IsSubscribed"`
+	IsSubscribed          bool               `json:"IsSubscribed"`
 	Progress              string             `json:"Progress"`
 	Status                string             `json:"Status"`
 	CreationTime          string             `json:"CreationTime"`
