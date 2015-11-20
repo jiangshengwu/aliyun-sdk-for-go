@@ -139,6 +139,7 @@ func (c *CommonParam) ResolveAllParams(action string, params map[string]string) 
 	}
 	params["TimeStamp"] = time.Now().UTC().Format("2006-01-02T15:04:05Z")
 	params["SignatureNonce"] = util.GetGuid()
+	params["ClientToken"] = util.RandomStr(32, util.RAND_KIND_ALL)
 	sign := util.MapToSign(params, c.AccessKeySecret, ECSHttpMethod)
 	params["Signature"] = sign
 	return params
