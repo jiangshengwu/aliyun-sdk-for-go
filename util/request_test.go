@@ -19,6 +19,6 @@ func Test_GetQueryFromMap(t *testing.T) {
 	}
 	query := GetQueryFromMap(params)
 	if query != "user=root&pass=test" && query != "pass=test&user=root" {
-		t.Error(query + "Query string is incorrect.")
+		t.Error("Query string is incorrect.")
 	}
 }
