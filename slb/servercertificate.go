@@ -10,7 +10,7 @@ type ServerCertificateService interface {
 }
 
 type ServerCertificateOperator struct {
-	Common *CommonParam
+	Common *util.CommonParam
 }
 
 // Response struct for UploadServerCertificate
@@ -50,24 +50,24 @@ type SetServerCertificateNameResponse struct {
 
 func (op *ServerCertificateOperator) UploadServerCertificate(params map[string]string) (UploadServerCertificateResponse, error) {
 	var resp UploadServerCertificateResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ServerCertificateOperator) DeleteServerCertificate(params map[string]string) (DeleteServerCertificateResponse, error) {
 	var resp DeleteServerCertificateResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ServerCertificateOperator) DescribeServerCertificates(params map[string]string) (DescribeServerCertificatesResponse, error) {
 	var resp DescribeServerCertificatesResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ServerCertificateOperator) SetServerCertificateName(params map[string]string) (SetServerCertificateNameResponse, error) {
 	var resp SetServerCertificateNameResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }

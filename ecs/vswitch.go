@@ -36,7 +36,7 @@ type VSwitchService interface {
 }
 
 type VSwitchOperator struct {
-	Common *CommonParam
+	Common *util.CommonParam
 }
 
 type CreateVSwitchResponse struct {
@@ -76,24 +76,24 @@ type VSwitchType struct {
 
 func (op *VSwitchOperator) CreateVSwitch(params map[string]string) (CreateVSwitchResponse, error) {
 	var resp CreateVSwitchResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *VSwitchOperator) DeleteVSwitch(params map[string]string) (DeleteVSwitchResponse, error) {
 	var resp DeleteVSwitchResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *VSwitchOperator) DescribeVSwitches(params map[string]string) (DescribeVSwitchesResponse, error) {
 	var resp DescribeVSwitchesResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *VSwitchOperator) ModifyVSwitchAttribute(params map[string]string) (ModifyVSwitchAttributeResponse, error) {
 	var resp ModifyVSwitchAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }

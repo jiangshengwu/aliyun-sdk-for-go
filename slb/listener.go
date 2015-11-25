@@ -25,7 +25,7 @@ type ListenerService interface {
 }
 
 type ListenerOperator struct {
-	Common *CommonParam
+	Common *util.CommonParam
 }
 
 // Response struct for CreateLoadBalancerHTTPListener
@@ -196,114 +196,114 @@ type DescribeListenerAccessControlAttributeResponse struct {
 
 func (op *ListenerOperator) CreateLoadBalancerHTTPListener(params map[string]string) (CreateLoadBalancerHTTPListenerResponse, error) {
 	var resp CreateLoadBalancerHTTPListenerResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) CreateLoadBalancerHTTPSListener(params map[string]string) (CreateLoadBalancerHTTPSListenerResponse, error) {
 	var resp CreateLoadBalancerHTTPSListenerResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) CreateLoadBalancerTCPListener(params map[string]string) (CreateLoadBalancerTCPListenerResponse, error) {
 	var resp CreateLoadBalancerTCPListenerResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) CreateLoadBalancerUDPListener(params map[string]string) (CreateLoadBalancerUDPListenerResponse, error) {
 	var resp CreateLoadBalancerUDPListenerResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) DeleteLoadBalancerListener(params map[string]string) (DeleteLoadBalancerListenerResponse, error) {
 	var resp DeleteLoadBalancerListenerResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) StartLoadBalancerListener(params map[string]string) (StartLoadBalancerListenerResponse, error) {
 	var resp StartLoadBalancerListenerResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) StopLoadBalancerListener(params map[string]string) (StopLoadBalancerListenerResponse, error) {
 	var resp StopLoadBalancerListenerResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) SetListenerAccessControlStatus(params map[string]string) (SetListenerAccessControlStatusResponse, error) {
 	var resp SetListenerAccessControlStatusResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) AddListenerWhiteListItem(params map[string]string) (AddListenerWhiteListItemResponse, error) {
 	var resp AddListenerWhiteListItemResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) RemoveListenerWhiteListItem(params map[string]string) (RemoveListenerWhiteListItemResponse, error) {
 	var resp RemoveListenerWhiteListItemResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) SetLoadBalancerHTTPListenerAttribute(params map[string]string) (SetLoadBalancerHTTPListenerAttributeResponse, error) {
 	var resp SetLoadBalancerHTTPListenerAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) SetLoadBalancerHTTPSListenerAttribute(params map[string]string) (SetLoadBalancerHTTPSListenerAttributeResponse, error) {
 	var resp SetLoadBalancerHTTPSListenerAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) SetLoadBalancerTCPListenerAttribute(params map[string]string) (SetLoadBalancerTCPListenerAttributeResponse, error) {
 	var resp SetLoadBalancerTCPListenerAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) SetLoadBalancerUDPListenerAttribute(params map[string]string) (SetLoadBalancerUDPListenerAttributeResponse, error) {
 	var resp SetLoadBalancerUDPListenerAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) DescribeLoadBalancerHTTPListenerAttribute(params map[string]string) (DescribeLoadBalancerHTTPListenerAttributeResponse, error) {
 	var resp DescribeLoadBalancerHTTPListenerAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) DescribeLoadBalancerHTTPSListenerAttribute(params map[string]string) (DescribeLoadBalancerHTTPSListenerAttributeResponse, error) {
 	var resp DescribeLoadBalancerHTTPSListenerAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) DescribeLoadBalancerTCPListenerAttribute(params map[string]string) (DescribeLoadBalancerTCPListenerAttributeResponse, error) {
 	var resp DescribeLoadBalancerTCPListenerAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) DescribeLoadBalancerUDPListenerAttribute(params map[string]string) (DescribeLoadBalancerUDPListenerAttributeResponse, error) {
 	var resp DescribeLoadBalancerUDPListenerAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ListenerOperator) DescribeListenerAccessControlAttribute(params map[string]string) (DescribeListenerAccessControlAttributeResponse, error) {
 	var resp DescribeListenerAccessControlAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }

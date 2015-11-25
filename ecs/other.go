@@ -7,7 +7,7 @@ type OtherService interface {
 }
 
 type OtherOperator struct {
-	Common *CommonParam
+	Common *util.CommonParam
 }
 
 // Response struct for DescribeInstanceTypes
@@ -29,6 +29,6 @@ type InstanceTypeItemType struct {
 
 func (op *OtherOperator) DescribeInstanceTypes(params map[string]string) (DescribeInstanceTypesResponse, error) {
 	var resp DescribeInstanceTypesResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }

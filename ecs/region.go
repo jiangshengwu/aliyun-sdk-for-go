@@ -8,7 +8,7 @@ type RegionService interface {
 }
 
 type RegionOperator struct {
-	Common *CommonParam
+	Common *util.CommonParam
 }
 
 // Response struct for DescribeRegions
@@ -57,12 +57,12 @@ type AvailableDiskCategoriesType struct {
 
 func (op *RegionOperator) DescribeRegions(params map[string]string) (DescribeRegionsResponse, error) {
 	var resp DescribeRegionsResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *RegionOperator) DescribeZones(params map[string]string) (DescribeZonesResponse, error) {
 	var resp DescribeZonesResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }

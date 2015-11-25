@@ -29,7 +29,7 @@ type RouteService interface {
 }
 
 type RouteOperator struct {
-	Common *CommonParam
+	Common *util.CommonParam
 }
 
 type CreateRouteEntryResponse struct {
@@ -73,18 +73,18 @@ type RouteEntrySetType struct {
 
 func (op *RouteOperator) CreateRouteEntry(params map[string]string) (CreateRouteEntryResponse, error) {
 	var resp CreateRouteEntryResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *RouteOperator) DeleteRouteEntry(params map[string]string) (DeleteRouteEntryResponse, error) {
 	var resp DeleteRouteEntryResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *RouteOperator) DescribeRouteTables(params map[string]string) (DescribeRouteTablesResponse, error) {
 	var resp DescribeRouteTablesResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }

@@ -14,7 +14,7 @@ type LoadBalancerService interface {
 }
 
 type LoadBalancerOperator struct {
-	Common *CommonParam
+	Common *util.CommonParam
 }
 
 // Response struct for CreateLoadBalancer
@@ -124,48 +124,48 @@ type RegionType struct {
 
 func (op *LoadBalancerOperator) CreateLoadBalancer(params map[string]string) (CreateLoadBalancerResponse, error) {
 	var resp CreateLoadBalancerResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *LoadBalancerOperator) ModifyLoadBalancerInternetSpec(params map[string]string) (ModifyLoadBalancerInternetSpecResponse, error) {
 	var resp ModifyLoadBalancerInternetSpecResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *LoadBalancerOperator) DeleteLoadBalancer(params map[string]string) (DeleteLoadBalancerResponse, error) {
 	var resp DeleteLoadBalancerResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *LoadBalancerOperator) SetLoadBalancerStatus(params map[string]string) (SetLoadBalancerStatusResponse, error) {
 	var resp SetLoadBalancerStatusResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *LoadBalancerOperator) SetLoadBalancerName(params map[string]string) (SetLoadBalancerNameResponse, error) {
 	var resp SetLoadBalancerNameResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *LoadBalancerOperator) DescribeLoadBalancers(params map[string]string) (DescribeLoadBalancersResponse, error) {
 	var resp DescribeLoadBalancersResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *LoadBalancerOperator) DescribeLoadBalancerAttribute(params map[string]string) (DescribeLoadBalancerAttributeResponse, error) {
 	var resp DescribeLoadBalancerAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *LoadBalancerOperator) DescribeRegions(params map[string]string) (DescribeRegionsResponse, error) {
 	var resp DescribeRegionsResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }

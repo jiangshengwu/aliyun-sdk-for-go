@@ -16,7 +16,7 @@ type DiskService interface {
 }
 
 type DiskOperator struct {
-	Common *CommonParam
+	Common *util.CommonParam
 }
 
 // Response struct for CreateDisk
@@ -104,60 +104,60 @@ type ResizeDiskResponse struct {
 
 func (op *DiskOperator) CreateDisk(params map[string]string) (CreateDiskResponse, error) {
 	var resp CreateDiskResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *DiskOperator) DescribeDisks(params map[string]string) (DescribeDisksResponse, error) {
 	var resp DescribeDisksResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *DiskOperator) AttachDisk(params map[string]string) (AttachDiskResponse, error) {
 	var resp AttachDiskResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *DiskOperator) DetachDisk(params map[string]string) (DetachDiskResponse, error) {
 	var resp DetachDiskResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *DiskOperator) ModifyDiskAttribute(params map[string]string) (ModifyDiskAttributeResponse, error) {
 	var resp ModifyDiskAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *DiskOperator) DeleteDisk(params map[string]string) (DeleteDiskResponse, error) {
 	var resp DeleteDiskResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *DiskOperator) ReInitDisk(params map[string]string) (ReInitDiskResponse, error) {
 	var resp ReInitDiskResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *DiskOperator) ResetDisk(params map[string]string) (ResetDiskResponse, error) {
 	var resp ResetDiskResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *DiskOperator) ReplaceSystemDisk(params map[string]string) (ReplaceSystemDiskResponse, error) {
 	var resp ReplaceSystemDiskResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *DiskOperator) ResizeDisk(params map[string]string) (ResizeDiskResponse, error) {
 	var resp ResizeDiskResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }

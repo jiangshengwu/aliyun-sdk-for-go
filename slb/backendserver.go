@@ -10,7 +10,7 @@ type BackendServerService interface {
 }
 
 type BackendServerOperator struct {
-	Common *CommonParam
+	Common *util.CommonParam
 }
 
 type BackendServerList struct {
@@ -52,24 +52,24 @@ type DescribeHealthStatusResponse struct {
 
 func (op *BackendServerOperator) AddBackendServers(params map[string]string) (AddBackendServersResponse, error) {
 	var resp AddBackendServersResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *BackendServerOperator) RemoveBackendServers(params map[string]string) (RemoveBackendServersResponse, error) {
 	var resp RemoveBackendServersResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *BackendServerOperator) SetBackendServers(params map[string]string) (SetBackendServersResponse, error) {
 	var resp SetBackendServersResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *BackendServerOperator) DescribeHealthStatus(params map[string]string) (DescribeHealthStatusResponse, error) {
 	var resp DescribeHealthStatusResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }

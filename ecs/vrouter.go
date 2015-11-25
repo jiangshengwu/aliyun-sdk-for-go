@@ -20,7 +20,7 @@ type VRouterService interface {
 }
 
 type VRouterOperator struct {
-	Common *CommonParam
+	Common *util.CommonParam
 }
 
 type VRouterSetTypes struct {
@@ -53,12 +53,12 @@ type ModifyVRouterAttributeResponse struct {
 
 func (op *VRouterOperator) DescribeVRouters(params map[string]string) (DescribeVRoutersResponse, error) {
 	var resp DescribeVRoutersResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *VRouterOperator) ModifyVRouterAttribute(params map[string]string) (ModifyVRouterAttributeResponse, error) {
 	var resp ModifyVRouterAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
