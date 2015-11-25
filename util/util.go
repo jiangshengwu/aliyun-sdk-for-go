@@ -37,6 +37,5 @@ func GetFuncName(skip int) string {
 	if i >= 0 {
 		name = name[i+1:]
 	}
-	println(name)
 	return name
 }
