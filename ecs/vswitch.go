@@ -51,7 +51,7 @@ type DeleteVSwitchResponse struct {
 type DescribeVSwitchesResponse struct {
 	util.ErrorResponse
 	util.PageResponse
-	VSwitches VSwitchTypes `json:"VSwitches"`
+	AllVSwitches VSwitchTypes `json:"VSwitches"`
 }
 
 type ModifyVSwitchAttributeResponse struct {
@@ -59,7 +59,7 @@ type ModifyVSwitchAttributeResponse struct {
 }
 
 type VSwitchTypes struct {
-	VSwitchType VSwitchType `json:"VSwitche"`
+	AllVSwitch []VSwitchType `json:"VSwitch"`
 }
 
 type VSwitchType struct {
