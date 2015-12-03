@@ -11,7 +11,7 @@ type SnapshotService interface {
 }
 
 type SnapshotOperator struct {
-	Common *CommonParam
+	Common *util.CommonParam
 }
 
 // Response struct for CreateSnapshot
@@ -81,30 +81,30 @@ type AutoSnapshotPolicyType struct {
 
 func (op *SnapshotOperator) CreateSnapshot(params map[string]string) (CreateSnapshotResponse, error) {
 	var resp CreateSnapshotResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *SnapshotOperator) DeleteSnapshot(params map[string]string) (DeleteSnapshotResponse, error) {
 	var resp DeleteSnapshotResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *SnapshotOperator) DescribeSnapshots(params map[string]string) (DescribeSnapshotsResponse, error) {
 	var resp DescribeSnapshotsResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *SnapshotOperator) ModifyAutoSnapshotPolicy(params map[string]string) (ModifyAutoSnapshotPolicyResponse, error) {
 	var resp ModifyAutoSnapshotPolicyResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *SnapshotOperator) DescribeAutoSnapshotPolicy(params map[string]string) (DescribeAutoSnapshotPolicyResponse, error) {
 	var resp DescribeAutoSnapshotPolicyResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }

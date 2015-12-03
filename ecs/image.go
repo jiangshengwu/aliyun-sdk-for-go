@@ -14,7 +14,7 @@ type ImageService interface {
 }
 
 type ImageOperator struct {
-	Common *CommonParam
+	Common *util.CommonParam
 }
 
 // Response struct for DescribeImages
@@ -119,48 +119,48 @@ type AccountType struct {
 
 func (op *ImageOperator) DescribeImages(params map[string]string) (DescribeImagesResponse, error) {
 	var resp DescribeImagesResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ImageOperator) CreateImage(params map[string]string) (CreateImageResponse, error) {
 	var resp CreateImageResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ImageOperator) ModifyImageAttribute(params map[string]string) (ModifyImageAttributeResponse, error) {
 	var resp ModifyImageAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ImageOperator) DeleteImage(params map[string]string) (DeleteImageResponse, error) {
 	var resp DeleteImageResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ImageOperator) CopyImage(params map[string]string) (CopyImageResponse, error) {
 	var resp CopyImageResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ImageOperator) CancelCopyImage(params map[string]string) (CancelCopyImageResponse, error) {
 	var resp CancelCopyImageResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ImageOperator) ModifyImageSharePermission(params map[string]string) (ModifyImageSharePermissionResponse, error) {
 	var resp ModifyImageSharePermissionResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *ImageOperator) DescribeImageSharePermission(params map[string]string) (DescribeImageSharePermissionResponse, error) {
 	var resp DescribeImageSharePermissionResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }

@@ -19,7 +19,7 @@ type VpcService interface {
 }
 
 type VpcOperator struct {
-	Common *CommonParam
+	Common *util.CommonParam
 }
 
 // Response struct for AllocateEipAddress
@@ -71,24 +71,24 @@ type ModifyVpcAttributeResponse struct {
 
 func (op *VpcOperator) CreateVpc(params map[string]string) (CreateVpcResponse, error) {
 	var resp CreateVpcResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *VpcOperator) DeleteVpc(params map[string]string) (DeleteVpcResponse, error) {
 	var resp DeleteVpcResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *VpcOperator) DescribeVpcs(params map[string]string) (DescribeVpcsResponse, error) {
 	var resp DescribeVpcsResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *VpcOperator) ModifyVpcAttribute(params map[string]string) (ModifyVpcAttributeResponse, error) {
 	var resp ModifyVpcAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }

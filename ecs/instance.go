@@ -49,7 +49,7 @@ type InstanceService interface {
 }
 
 type InstanceOperator struct {
-	Common *CommonParam
+	Common *util.CommonParam
 }
 
 // Response struct for CreateInstance
@@ -206,84 +206,84 @@ type ModifyInstanceVncPasswdResponse struct {
 
 func (op *InstanceOperator) CreateInstance(params map[string]string) (CreateInstanceResponse, error) {
 	var resp CreateInstanceResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *InstanceOperator) StartInstance(params map[string]string) (StartInstanceResponse, error) {
 	var resp StartInstanceResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *InstanceOperator) StopInstance(params map[string]string) (StopInstanceResponse, error) {
 	var resp StopInstanceResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *InstanceOperator) RebootInstance(params map[string]string) (RebootInstanceResponse, error) {
 	var resp RebootInstanceResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *InstanceOperator) ModifyInstanceAttribute(params map[string]string) (ModifyInstanceAttributeResponse, error) {
 	var resp ModifyInstanceAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *InstanceOperator) ModifyInstanceVpcAttribute(params map[string]string) (ModifyInstanceVpcAttributeResponse, error) {
 	var resp ModifyInstanceVpcAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *InstanceOperator) DescribeInstanceStatus(params map[string]string) (DescribeInstanceStatusResponse, error) {
 	var resp DescribeInstanceStatusResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *InstanceOperator) DescribeInstanceAttribute(params map[string]string) (DescribeInstanceAttributeResponse, error) {
 	var resp DescribeInstanceAttributeResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *InstanceOperator) DescribeInstances(params map[string]string) (DescribeInstancesResponse, error) {
 	var resp DescribeInstancesResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *InstanceOperator) DeleteInstance(params map[string]string) (DeleteInstanceResponse, error) {
 	var resp DeleteInstanceResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *InstanceOperator) JoinSecurityGroup(params map[string]string) (JoinSecurityGroupResponse, error) {
 	var resp JoinSecurityGroupResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *InstanceOperator) LeaveSecurityGroup(params map[string]string) (LeaveSecurityGroupResponse, error) {
 	var resp LeaveSecurityGroupResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *InstanceOperator) DescribeInstanceVncUrl(params map[string]string) (DescribeInstanceVncUrlResponse, error) {
 	var resp DescribeInstanceVncUrlResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *InstanceOperator) ModifyInstanceVncPasswd(params map[string]string) (ModifyInstanceVncPasswdResponse, error) {
 	var resp ModifyInstanceVncPasswdResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }

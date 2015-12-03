@@ -2,6 +2,8 @@ package util
 
 import (
 	"math/rand"
+	"runtime"
+	"strings"
 	"time"
 )
 
@@ -24,4 +26,16 @@ func RandomStr(size int, kind int) string {
 		result[i] = uint8(base + rand.Intn(scope))
 	}
 	return string(result)
+}
+
+// Get function name by skip
+// which means the differs between Caller and Callers
+func GetFuncName(skip int) string {
+	pc, _, _, _ := runtime.Caller(skip)
+	name := runtime.FuncForPC(pc).Name()
+	i := strings.LastIndex(name, ".")
+	if i >= 0 {
+		name = name[i+1:]
+	}
+	return name
 }

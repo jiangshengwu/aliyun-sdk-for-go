@@ -9,7 +9,7 @@ type MonitorService interface {
 }
 
 type MonitorOperator struct {
-	Common *CommonParam
+	Common *util.CommonParam
 }
 
 // Response struct for DescribeInstanceTypes
@@ -84,18 +84,18 @@ type DiskMonitorDataType struct {
 
 func (op *MonitorOperator) DescribeInstanceMonitorData(params map[string]string) (DescribeInstanceMonitorDataResponse, error) {
 	var resp DescribeInstanceMonitorDataResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *MonitorOperator) DescribeEipMonitorData(params map[string]string) (DescribeEipMonitorDataResponse, error) {
 	var resp DescribeEipMonitorDataResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
 func (op *MonitorOperator) DescribeDiskMonitorData(params map[string]string) (DescribeDiskMonitorDataResponse, error) {
 	var resp DescribeDiskMonitorDataResponse
-	err := op.Common.Request(GetFuncName(1), params, &resp)
+	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
