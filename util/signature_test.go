@@ -5,7 +5,7 @@ import (
 )
 
 func Test_MapToSign(t *testing.T) {
-	params := map[string]string{
+	params := map[string]interface{}{
 		"SignatureVersion": "1.0",
 		"Action":           "DescribeInstanceAttribute",
 		"Format":           "JSON",

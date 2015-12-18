@@ -47,7 +47,7 @@ func NewClient(accessKeyId string, accessKeySecret string, resourceOwnerAccount 
 	client.Common.AccessKeyId = accessKeyId
 	client.Common.AccessKeySecret = accessKeySecret
 	client.Common.ResourceOwnerAccount = resourceOwnerAccount
-	ps := map[string]string{
+	ps := map[string]interface{}{
 		"Host":             ECSHost,
 		"HttpMethod":       ECSHttpMethod,
 		"Format":           Format,
@@ -79,13 +79,13 @@ func (client *EcsClient) GetClientName() string {
 }
 
 func (client *EcsClient) GetVersion() string {
-	return client.Common.Attr["Version"]
+	return client.Common.Attr["Version"].(string)
 }
 
 func (client *EcsClient) GetSignatureMethod() string {
-	return client.Common.Attr["SignatureMethod"]
+	return client.Common.Attr["SignatureMethod"].(string)
 }
 
 func (client *EcsClient) GetSignatureVersion() string {
-	return client.Common.Attr["SignatureVersion"]
+	return client.Common.Attr["SignatureVersion"].(string)
 }

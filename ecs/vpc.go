@@ -12,10 +12,10 @@ type VpcService interface {
 	 * Description:
 	 * ClientToken:
 	 */
-	CreateVpc(param map[string]string) (CreateVpcResponse, error)
-	DeleteVpc(params map[string]string) (DeleteVpcResponse, error)
-	DescribeVpcs(params map[string]string) (DescribeVpcsResponse, error)
-	ModifyVpcAttribute(params map[string]string) (ModifyVpcAttributeResponse, error)
+	CreateVpc(param map[string]interface{}) (CreateVpcResponse, error)
+	DeleteVpc(params map[string]interface{}) (DeleteVpcResponse, error)
+	DescribeVpcs(params map[string]interface{}) (DescribeVpcsResponse, error)
+	ModifyVpcAttribute(params map[string]interface{}) (ModifyVpcAttributeResponse, error)
 }
 
 type VpcOperator struct {
@@ -69,25 +69,25 @@ type ModifyVpcAttributeResponse struct {
 	util.ErrorResponse
 }
 
-func (op *VpcOperator) CreateVpc(params map[string]string) (CreateVpcResponse, error) {
+func (op *VpcOperator) CreateVpc(params map[string]interface{}) (CreateVpcResponse, error) {
 	var resp CreateVpcResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *VpcOperator) DeleteVpc(params map[string]string) (DeleteVpcResponse, error) {
+func (op *VpcOperator) DeleteVpc(params map[string]interface{}) (DeleteVpcResponse, error) {
 	var resp DeleteVpcResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *VpcOperator) DescribeVpcs(params map[string]string) (DescribeVpcsResponse, error) {
+func (op *VpcOperator) DescribeVpcs(params map[string]interface{}) (DescribeVpcsResponse, error) {
 	var resp DescribeVpcsResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *VpcOperator) ModifyVpcAttribute(params map[string]string) (ModifyVpcAttributeResponse, error) {
+func (op *VpcOperator) ModifyVpcAttribute(params map[string]interface{}) (ModifyVpcAttributeResponse, error) {
 	var resp ModifyVpcAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err

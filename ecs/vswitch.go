@@ -11,12 +11,12 @@ type VSwitchService interface {
 	 * Description(optional): VSwitch 描述，不填则为空，默认值为空，[2, 256] 英文或中文字符，不能以 http:// 和 https:// 开头
 	 * ClientToken(optional): 用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不值过 64 个 ASCII 字符
 	 */
-	CreateVSwitch(param map[string]string) (CreateVSwitchResponse, error)
+	CreateVSwitch(param map[string]interface{}) (CreateVSwitchResponse, error)
 
 	/**
 	 * VSwitchId(required): 需要删除的 VSwitch 的 Id
 	 */
-	DeleteVSwitch(param map[string]string) (DeleteVSwitchResponse, error)
+	DeleteVSwitch(param map[string]interface{}) (DeleteVSwitchResponse, error)
 
 	/**
 	 * VpcId(required): VpcId
@@ -25,14 +25,14 @@ type VSwitchService interface {
 	 * PageNumber(optional):
 	 * PageSize(optional):
 	 */
-	DescribeVSwitches(param map[string]string) (DescribeVSwitchesResponse, error)
+	DescribeVSwitches(param map[string]interface{}) (DescribeVSwitchesResponse, error)
 
 	/**
 	 * VSwitchId(required)
 	 * VSwitchName(optional)
 	 * Description(optional)
 	 */
-	ModifyVSwitchAttribute(param map[string]string) (ModifyVSwitchAttributeResponse, error)
+	ModifyVSwitchAttribute(param map[string]interface{}) (ModifyVSwitchAttributeResponse, error)
 }
 
 type VSwitchOperator struct {
@@ -74,25 +74,25 @@ type VSwitchType struct {
 	CreationTime            string `json:"CreationTime"`
 }
 
-func (op *VSwitchOperator) CreateVSwitch(params map[string]string) (CreateVSwitchResponse, error) {
+func (op *VSwitchOperator) CreateVSwitch(params map[string]interface{}) (CreateVSwitchResponse, error) {
 	var resp CreateVSwitchResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *VSwitchOperator) DeleteVSwitch(params map[string]string) (DeleteVSwitchResponse, error) {
+func (op *VSwitchOperator) DeleteVSwitch(params map[string]interface{}) (DeleteVSwitchResponse, error) {
 	var resp DeleteVSwitchResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *VSwitchOperator) DescribeVSwitches(params map[string]string) (DescribeVSwitchesResponse, error) {
+func (op *VSwitchOperator) DescribeVSwitches(params map[string]interface{}) (DescribeVSwitchesResponse, error) {
 	var resp DescribeVSwitchesResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *VSwitchOperator) ModifyVSwitchAttribute(params map[string]string) (ModifyVSwitchAttributeResponse, error) {
+func (op *VSwitchOperator) ModifyVSwitchAttribute(params map[string]interface{}) (ModifyVSwitchAttributeResponse, error) {
 	var resp ModifyVSwitchAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err

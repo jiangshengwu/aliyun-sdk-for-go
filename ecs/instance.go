@@ -32,20 +32,20 @@ type InstanceService interface {
 	 * VSwitchId(optional): 如果是创建 VPC 类型的实例，需要指定交换机的 ID
 	 * PrivateIpAddress(optional):
 	 */
-	CreateInstance(params map[string]string) (CreateInstanceResponse, error)
-	StartInstance(params map[string]string) (StartInstanceResponse, error)
-	StopInstance(params map[string]string) (StopInstanceResponse, error)
-	RebootInstance(params map[string]string) (RebootInstanceResponse, error)
-	ModifyInstanceAttribute(params map[string]string) (ModifyInstanceAttributeResponse, error)
-	ModifyInstanceVpcAttribute(params map[string]string) (ModifyInstanceVpcAttributeResponse, error)
-	DescribeInstanceStatus(params map[string]string) (DescribeInstanceStatusResponse, error)
-	DescribeInstanceAttribute(params map[string]string) (DescribeInstanceAttributeResponse, error)
-	DescribeInstances(params map[string]string) (DescribeInstancesResponse, error)
-	DeleteInstance(params map[string]string) (DeleteInstanceResponse, error)
-	JoinSecurityGroup(params map[string]string) (JoinSecurityGroupResponse, error)
-	LeaveSecurityGroup(params map[string]string) (LeaveSecurityGroupResponse, error)
-	DescribeInstanceVncUrl(params map[string]string) (DescribeInstanceVncUrlResponse, error)
-	ModifyInstanceVncPasswd(params map[string]string) (ModifyInstanceVncPasswdResponse, error)
+	CreateInstance(params map[string]interface{}) (CreateInstanceResponse, error)
+	StartInstance(params map[string]interface{}) (StartInstanceResponse, error)
+	StopInstance(params map[string]interface{}) (StopInstanceResponse, error)
+	RebootInstance(params map[string]interface{}) (RebootInstanceResponse, error)
+	ModifyInstanceAttribute(params map[string]interface{}) (ModifyInstanceAttributeResponse, error)
+	ModifyInstanceVpcAttribute(params map[string]interface{}) (ModifyInstanceVpcAttributeResponse, error)
+	DescribeInstanceStatus(params map[string]interface{}) (DescribeInstanceStatusResponse, error)
+	DescribeInstanceAttribute(params map[string]interface{}) (DescribeInstanceAttributeResponse, error)
+	DescribeInstances(params map[string]interface{}) (DescribeInstancesResponse, error)
+	DeleteInstance(params map[string]interface{}) (DeleteInstanceResponse, error)
+	JoinSecurityGroup(params map[string]interface{}) (JoinSecurityGroupResponse, error)
+	LeaveSecurityGroup(params map[string]interface{}) (LeaveSecurityGroupResponse, error)
+	DescribeInstanceVncUrl(params map[string]interface{}) (DescribeInstanceVncUrlResponse, error)
+	ModifyInstanceVncPasswd(params map[string]interface{}) (ModifyInstanceVncPasswdResponse, error)
 }
 
 type InstanceOperator struct {
@@ -204,85 +204,85 @@ type ModifyInstanceVncPasswdResponse struct {
 	util.ErrorResponse
 }
 
-func (op *InstanceOperator) CreateInstance(params map[string]string) (CreateInstanceResponse, error) {
+func (op *InstanceOperator) CreateInstance(params map[string]interface{}) (CreateInstanceResponse, error) {
 	var resp CreateInstanceResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *InstanceOperator) StartInstance(params map[string]string) (StartInstanceResponse, error) {
+func (op *InstanceOperator) StartInstance(params map[string]interface{}) (StartInstanceResponse, error) {
 	var resp StartInstanceResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *InstanceOperator) StopInstance(params map[string]string) (StopInstanceResponse, error) {
+func (op *InstanceOperator) StopInstance(params map[string]interface{}) (StopInstanceResponse, error) {
 	var resp StopInstanceResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *InstanceOperator) RebootInstance(params map[string]string) (RebootInstanceResponse, error) {
+func (op *InstanceOperator) RebootInstance(params map[string]interface{}) (RebootInstanceResponse, error) {
 	var resp RebootInstanceResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *InstanceOperator) ModifyInstanceAttribute(params map[string]string) (ModifyInstanceAttributeResponse, error) {
+func (op *InstanceOperator) ModifyInstanceAttribute(params map[string]interface{}) (ModifyInstanceAttributeResponse, error) {
 	var resp ModifyInstanceAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *InstanceOperator) ModifyInstanceVpcAttribute(params map[string]string) (ModifyInstanceVpcAttributeResponse, error) {
+func (op *InstanceOperator) ModifyInstanceVpcAttribute(params map[string]interface{}) (ModifyInstanceVpcAttributeResponse, error) {
 	var resp ModifyInstanceVpcAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *InstanceOperator) DescribeInstanceStatus(params map[string]string) (DescribeInstanceStatusResponse, error) {
+func (op *InstanceOperator) DescribeInstanceStatus(params map[string]interface{}) (DescribeInstanceStatusResponse, error) {
 	var resp DescribeInstanceStatusResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *InstanceOperator) DescribeInstanceAttribute(params map[string]string) (DescribeInstanceAttributeResponse, error) {
+func (op *InstanceOperator) DescribeInstanceAttribute(params map[string]interface{}) (DescribeInstanceAttributeResponse, error) {
 	var resp DescribeInstanceAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *InstanceOperator) DescribeInstances(params map[string]string) (DescribeInstancesResponse, error) {
+func (op *InstanceOperator) DescribeInstances(params map[string]interface{}) (DescribeInstancesResponse, error) {
 	var resp DescribeInstancesResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *InstanceOperator) DeleteInstance(params map[string]string) (DeleteInstanceResponse, error) {
+func (op *InstanceOperator) DeleteInstance(params map[string]interface{}) (DeleteInstanceResponse, error) {
 	var resp DeleteInstanceResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *InstanceOperator) JoinSecurityGroup(params map[string]string) (JoinSecurityGroupResponse, error) {
+func (op *InstanceOperator) JoinSecurityGroup(params map[string]interface{}) (JoinSecurityGroupResponse, error) {
 	var resp JoinSecurityGroupResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *InstanceOperator) LeaveSecurityGroup(params map[string]string) (LeaveSecurityGroupResponse, error) {
+func (op *InstanceOperator) LeaveSecurityGroup(params map[string]interface{}) (LeaveSecurityGroupResponse, error) {
 	var resp LeaveSecurityGroupResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *InstanceOperator) DescribeInstanceVncUrl(params map[string]string) (DescribeInstanceVncUrlResponse, error) {
+func (op *InstanceOperator) DescribeInstanceVncUrl(params map[string]interface{}) (DescribeInstanceVncUrlResponse, error) {
 	var resp DescribeInstanceVncUrlResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *InstanceOperator) ModifyInstanceVncPasswd(params map[string]string) (ModifyInstanceVncPasswdResponse, error) {
+func (op *InstanceOperator) ModifyInstanceVncPasswd(params map[string]interface{}) (ModifyInstanceVncPasswdResponse, error) {
 	var resp ModifyInstanceVncPasswdResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err

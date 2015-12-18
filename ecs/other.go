@@ -3,7 +3,7 @@ package ecs
 import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type OtherService interface {
-	DescribeInstanceTypes(params map[string]string) (DescribeInstanceTypesResponse, error)
+	DescribeInstanceTypes(params map[string]interface{}) (DescribeInstanceTypesResponse, error)
 }
 
 type OtherOperator struct {
@@ -27,7 +27,7 @@ type InstanceTypeItemType struct {
 	MemorySize     float64 `json:"MemorySize"`
 }
 
-func (op *OtherOperator) DescribeInstanceTypes(params map[string]string) (DescribeInstanceTypesResponse, error) {
+func (op *OtherOperator) DescribeInstanceTypes(params map[string]interface{}) (DescribeInstanceTypesResponse, error) {
 	var resp DescribeInstanceTypesResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err

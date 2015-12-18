@@ -3,14 +3,14 @@ package ecs
 import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type NetworkService interface {
-	AllocatePublicIpAddress(params map[string]string) (AllocatePublicIpAddressResponse, error)
-	ModifyInstanceNetworkSpec(params map[string]string) (ModifyInstanceNetworkSpecResponse, error)
-	AllocateEipAddress(params map[string]string) (AllocateEipAddressResponse, error)
-	AssociateEipAddress(params map[string]string) (AssociateEipAddressResponse, error)
-	DescribeEipAddresses(params map[string]string) (DescribeEipAddressesResponse, error)
-	ModifyEipAddressAttribute(params map[string]string) (ModifyEipAddressAttributeResponse, error)
-	UnassociateEipAddress(params map[string]string) (UnassociateEipAddressResponse, error)
-	ReleaseEipAddress(params map[string]string) (ReleaseEipAddressResponse, error)
+	AllocatePublicIpAddress(params map[string]interface{}) (AllocatePublicIpAddressResponse, error)
+	ModifyInstanceNetworkSpec(params map[string]interface{}) (ModifyInstanceNetworkSpecResponse, error)
+	AllocateEipAddress(params map[string]interface{}) (AllocateEipAddressResponse, error)
+	AssociateEipAddress(params map[string]interface{}) (AssociateEipAddressResponse, error)
+	DescribeEipAddresses(params map[string]interface{}) (DescribeEipAddressesResponse, error)
+	ModifyEipAddressAttribute(params map[string]interface{}) (ModifyEipAddressAttributeResponse, error)
+	UnassociateEipAddress(params map[string]interface{}) (UnassociateEipAddressResponse, error)
+	ReleaseEipAddress(params map[string]interface{}) (ReleaseEipAddressResponse, error)
 }
 
 type NetworkOperator struct {
@@ -79,49 +79,49 @@ type ReleaseEipAddressResponse struct {
 	util.ErrorResponse
 }
 
-func (op *NetworkOperator) AllocatePublicIpAddress(params map[string]string) (AllocatePublicIpAddressResponse, error) {
+func (op *NetworkOperator) AllocatePublicIpAddress(params map[string]interface{}) (AllocatePublicIpAddressResponse, error) {
 	var resp AllocatePublicIpAddressResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *NetworkOperator) ModifyInstanceNetworkSpec(params map[string]string) (ModifyInstanceNetworkSpecResponse, error) {
+func (op *NetworkOperator) ModifyInstanceNetworkSpec(params map[string]interface{}) (ModifyInstanceNetworkSpecResponse, error) {
 	var resp ModifyInstanceNetworkSpecResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *NetworkOperator) AllocateEipAddress(params map[string]string) (AllocateEipAddressResponse, error) {
+func (op *NetworkOperator) AllocateEipAddress(params map[string]interface{}) (AllocateEipAddressResponse, error) {
 	var resp AllocateEipAddressResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *NetworkOperator) AssociateEipAddress(params map[string]string) (AssociateEipAddressResponse, error) {
+func (op *NetworkOperator) AssociateEipAddress(params map[string]interface{}) (AssociateEipAddressResponse, error) {
 	var resp AssociateEipAddressResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *NetworkOperator) DescribeEipAddresses(params map[string]string) (DescribeEipAddressesResponse, error) {
+func (op *NetworkOperator) DescribeEipAddresses(params map[string]interface{}) (DescribeEipAddressesResponse, error) {
 	var resp DescribeEipAddressesResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *NetworkOperator) ModifyEipAddressAttribute(params map[string]string) (ModifyEipAddressAttributeResponse, error) {
+func (op *NetworkOperator) ModifyEipAddressAttribute(params map[string]interface{}) (ModifyEipAddressAttributeResponse, error) {
 	var resp ModifyEipAddressAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *NetworkOperator) UnassociateEipAddress(params map[string]string) (UnassociateEipAddressResponse, error) {
+func (op *NetworkOperator) UnassociateEipAddress(params map[string]interface{}) (UnassociateEipAddressResponse, error) {
 	var resp UnassociateEipAddressResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *NetworkOperator) ReleaseEipAddress(params map[string]string) (ReleaseEipAddressResponse, error) {
+func (op *NetworkOperator) ReleaseEipAddress(params map[string]interface{}) (ReleaseEipAddressResponse, error) {
 	var resp ReleaseEipAddressResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err

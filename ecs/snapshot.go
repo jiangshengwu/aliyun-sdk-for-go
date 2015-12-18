@@ -3,11 +3,11 @@ package ecs
 import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type SnapshotService interface {
-	CreateSnapshot(params map[string]string) (CreateSnapshotResponse, error)
-	DeleteSnapshot(params map[string]string) (DeleteSnapshotResponse, error)
-	DescribeSnapshots(params map[string]string) (DescribeSnapshotsResponse, error)
-	ModifyAutoSnapshotPolicy(params map[string]string) (ModifyAutoSnapshotPolicyResponse, error)
-	DescribeAutoSnapshotPolicy(params map[string]string) (DescribeAutoSnapshotPolicyResponse, error)
+	CreateSnapshot(params map[string]interface{}) (CreateSnapshotResponse, error)
+	DeleteSnapshot(params map[string]interface{}) (DeleteSnapshotResponse, error)
+	DescribeSnapshots(params map[string]interface{}) (DescribeSnapshotsResponse, error)
+	ModifyAutoSnapshotPolicy(params map[string]interface{}) (ModifyAutoSnapshotPolicyResponse, error)
+	DescribeAutoSnapshotPolicy(params map[string]interface{}) (DescribeAutoSnapshotPolicyResponse, error)
 }
 
 type SnapshotOperator struct {
@@ -79,31 +79,31 @@ type AutoSnapshotPolicyType struct {
 	DataDiskPolicyRetentionLastWeek   string `json:"DataDiskPolicyRetentionLastWeek"`
 }
 
-func (op *SnapshotOperator) CreateSnapshot(params map[string]string) (CreateSnapshotResponse, error) {
+func (op *SnapshotOperator) CreateSnapshot(params map[string]interface{}) (CreateSnapshotResponse, error) {
 	var resp CreateSnapshotResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *SnapshotOperator) DeleteSnapshot(params map[string]string) (DeleteSnapshotResponse, error) {
+func (op *SnapshotOperator) DeleteSnapshot(params map[string]interface{}) (DeleteSnapshotResponse, error) {
 	var resp DeleteSnapshotResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *SnapshotOperator) DescribeSnapshots(params map[string]string) (DescribeSnapshotsResponse, error) {
+func (op *SnapshotOperator) DescribeSnapshots(params map[string]interface{}) (DescribeSnapshotsResponse, error) {
 	var resp DescribeSnapshotsResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *SnapshotOperator) ModifyAutoSnapshotPolicy(params map[string]string) (ModifyAutoSnapshotPolicyResponse, error) {
+func (op *SnapshotOperator) ModifyAutoSnapshotPolicy(params map[string]interface{}) (ModifyAutoSnapshotPolicyResponse, error) {
 	var resp ModifyAutoSnapshotPolicyResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *SnapshotOperator) DescribeAutoSnapshotPolicy(params map[string]string) (DescribeAutoSnapshotPolicyResponse, error) {
+func (op *SnapshotOperator) DescribeAutoSnapshotPolicy(params map[string]interface{}) (DescribeAutoSnapshotPolicyResponse, error) {
 	var resp DescribeAutoSnapshotPolicyResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err

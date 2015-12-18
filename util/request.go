@@ -6,6 +6,8 @@ import (
 
 	"encoding/json"
 
+	"strconv"
+
 	"github.com/jiangshengwu/aliyun-sdk-for-go/log"
 )
 
@@ -38,10 +40,18 @@ func (request *AliyunRequest) DoGetRequest() (string, error) {
 }
 
 // Get formatted query string from map
-func GetQueryFromMap(params map[string]string) string {
+func GetQueryFromMap(params map[string]interface{}) string {
 	query := ""
 	for k, v := range params {
-		query += "&" + k + "=" + v
+		query += "&" + k + "="
+		switch v.(type) {
+		case string:
+			query += v.(string)
+		case int:
+			query += strconv.Itoa(v.(int))
+		default:
+
+		}
 	}
 	if len(query) > 0 {
 		query = query[1:]

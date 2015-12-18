@@ -10,13 +10,14 @@ import (
 	"io"
 	"net/url"
 	"sort"
+	"strconv"
 	"strings"
 )
 
 const SEPARATOR = "&"
 
 // Get signature from params in map
-func MapToSign(params map[string]string, keySecret string, httpMethod string) string {
+func MapToSign(params map[string]interface{}, keySecret string, httpMethod string) string {
 	key := []byte(keySecret + SEPARATOR)
 	h := hmac.New(sha1.New, key)
 	query := canonicalizedFromMap(params)
@@ -28,7 +29,7 @@ func MapToSign(params map[string]string, keySecret string, httpMethod string) st
 }
 
 // Get canonicalized query string from params in map
-func canonicalizedFromMap(params map[string]string) string {
+func canonicalizedFromMap(params map[string]interface{}) string {
 	keys := make([]string, len(params))
 	i := 0
 	for k := range params {
@@ -38,9 +39,20 @@ func canonicalizedFromMap(params map[string]string) string {
 	sort.Strings(keys)
 	sign := ""
 	for _, v := range keys {
-		sign += SEPARATOR + PercentEncode(v) + "=" + PercentEncode(params[v])
+		sign += SEPARATOR + PercentEncode(v) + "="
+		switch params[v].(type) {
+		case string:
+			sign += PercentEncode(params[v].(string))
+		case int:
+			sign += PercentEncode(strconv.Itoa(params[v].(int)))
+		default:
+
+		}
+
 	}
-	sign = PercentEncode(sign[1:])
+	if len(sign) > 0 {
+		sign = PercentEncode(sign[1:])
+	}
 	return sign
 }
 

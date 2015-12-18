@@ -13,7 +13,7 @@ func Test_DoRequest(t *testing.T) {
 }
 
 func Test_GetQueryFromMap(t *testing.T) {
-	params := map[string]string{
+	params := map[string]interface{}{
 		"user": "root",
 		"pass": "test",
 	}

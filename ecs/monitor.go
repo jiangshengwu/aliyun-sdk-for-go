@@ -3,9 +3,9 @@ package ecs
 import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type MonitorService interface {
-	DescribeInstanceMonitorData(params map[string]string) (DescribeInstanceMonitorDataResponse, error)
-	DescribeEipMonitorData(params map[string]string) (DescribeEipMonitorDataResponse, error)
-	DescribeDiskMonitorData(params map[string]string) (DescribeDiskMonitorDataResponse, error)
+	DescribeInstanceMonitorData(params map[string]interface{}) (DescribeInstanceMonitorDataResponse, error)
+	DescribeEipMonitorData(params map[string]interface{}) (DescribeEipMonitorDataResponse, error)
+	DescribeDiskMonitorData(params map[string]interface{}) (DescribeDiskMonitorDataResponse, error)
 }
 
 type MonitorOperator struct {
@@ -82,19 +82,19 @@ type DiskMonitorDataType struct {
 	TimeStamp string `json:"TimeStamp"`
 }
 
-func (op *MonitorOperator) DescribeInstanceMonitorData(params map[string]string) (DescribeInstanceMonitorDataResponse, error) {
+func (op *MonitorOperator) DescribeInstanceMonitorData(params map[string]interface{}) (DescribeInstanceMonitorDataResponse, error) {
 	var resp DescribeInstanceMonitorDataResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *MonitorOperator) DescribeEipMonitorData(params map[string]string) (DescribeEipMonitorDataResponse, error) {
+func (op *MonitorOperator) DescribeEipMonitorData(params map[string]interface{}) (DescribeEipMonitorDataResponse, error) {
 	var resp DescribeEipMonitorDataResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *MonitorOperator) DescribeDiskMonitorData(params map[string]string) (DescribeDiskMonitorDataResponse, error) {
+func (op *MonitorOperator) DescribeDiskMonitorData(params map[string]interface{}) (DescribeDiskMonitorDataResponse, error) {
 	var resp DescribeDiskMonitorDataResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err

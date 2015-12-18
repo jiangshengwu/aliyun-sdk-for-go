@@ -3,14 +3,14 @@ package ecs
 import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type ImageService interface {
-	DescribeImages(params map[string]string) (DescribeImagesResponse, error)
-	CreateImage(params map[string]string) (CreateImageResponse, error)
-	ModifyImageAttribute(params map[string]string) (ModifyImageAttributeResponse, error)
-	DeleteImage(params map[string]string) (DeleteImageResponse, error)
-	CopyImage(params map[string]string) (CopyImageResponse, error)
-	CancelCopyImage(params map[string]string) (CancelCopyImageResponse, error)
-	ModifyImageSharePermission(params map[string]string) (ModifyImageSharePermissionResponse, error)
-	DescribeImageSharePermission(params map[string]string) (DescribeImageSharePermissionResponse, error)
+	DescribeImages(params map[string]interface{}) (DescribeImagesResponse, error)
+	CreateImage(params map[string]interface{}) (CreateImageResponse, error)
+	ModifyImageAttribute(params map[string]interface{}) (ModifyImageAttributeResponse, error)
+	DeleteImage(params map[string]interface{}) (DeleteImageResponse, error)
+	CopyImage(params map[string]interface{}) (CopyImageResponse, error)
+	CancelCopyImage(params map[string]interface{}) (CancelCopyImageResponse, error)
+	ModifyImageSharePermission(params map[string]interface{}) (ModifyImageSharePermissionResponse, error)
+	DescribeImageSharePermission(params map[string]interface{}) (DescribeImageSharePermissionResponse, error)
 }
 
 type ImageOperator struct {
@@ -117,49 +117,49 @@ type AccountType struct {
 	AliyunId string `json:"AliyunId"`
 }
 
-func (op *ImageOperator) DescribeImages(params map[string]string) (DescribeImagesResponse, error) {
+func (op *ImageOperator) DescribeImages(params map[string]interface{}) (DescribeImagesResponse, error) {
 	var resp DescribeImagesResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ImageOperator) CreateImage(params map[string]string) (CreateImageResponse, error) {
+func (op *ImageOperator) CreateImage(params map[string]interface{}) (CreateImageResponse, error) {
 	var resp CreateImageResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ImageOperator) ModifyImageAttribute(params map[string]string) (ModifyImageAttributeResponse, error) {
+func (op *ImageOperator) ModifyImageAttribute(params map[string]interface{}) (ModifyImageAttributeResponse, error) {
 	var resp ModifyImageAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ImageOperator) DeleteImage(params map[string]string) (DeleteImageResponse, error) {
+func (op *ImageOperator) DeleteImage(params map[string]interface{}) (DeleteImageResponse, error) {
 	var resp DeleteImageResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ImageOperator) CopyImage(params map[string]string) (CopyImageResponse, error) {
+func (op *ImageOperator) CopyImage(params map[string]interface{}) (CopyImageResponse, error) {
 	var resp CopyImageResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ImageOperator) CancelCopyImage(params map[string]string) (CancelCopyImageResponse, error) {
+func (op *ImageOperator) CancelCopyImage(params map[string]interface{}) (CancelCopyImageResponse, error) {
 	var resp CancelCopyImageResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ImageOperator) ModifyImageSharePermission(params map[string]string) (ModifyImageSharePermissionResponse, error) {
+func (op *ImageOperator) ModifyImageSharePermission(params map[string]interface{}) (ModifyImageSharePermissionResponse, error) {
 	var resp ModifyImageSharePermissionResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ImageOperator) DescribeImageSharePermission(params map[string]string) (DescribeImageSharePermissionResponse, error) {
+func (op *ImageOperator) DescribeImageSharePermission(params map[string]interface{}) (DescribeImageSharePermissionResponse, error) {
 	var resp DescribeImageSharePermissionResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err

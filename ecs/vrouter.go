@@ -9,14 +9,14 @@ type VRouterService interface {
 	 * PageNumber:
 	 * PageSize:
 	 */
-	DescribeVRouters(param map[string]string) (DescribeVRoutersResponse, error)
+	DescribeVRouters(param map[string]interface{}) (DescribeVRoutersResponse, error)
 
 	/**
 	 * VRouterId:
 	 * VRouterName(optional): 修改后的 VRouter 名字，不填则为空，默认值为空，[2, 128] 英文或中文字符，必须以大小字母或中文开头，可包含数字，”_”或”-”，这个值会展示在控制台。不能以 http:// 和 https:// 开头
 	 * Description(optional): 修改后的 VRouter 描述，不填则为空，默认值为空，[2, 256] 英文或中文字符，不能以 http:// 和 https:// 开头
 	 */
-	ModifyVRouterAttribute(params map[string]string) (ModifyVRouterAttributeResponse, error)
+	ModifyVRouterAttribute(params map[string]interface{}) (ModifyVRouterAttributeResponse, error)
 }
 
 type VRouterOperator struct {
@@ -51,13 +51,13 @@ type ModifyVRouterAttributeResponse struct {
 	util.ErrorResponse
 }
 
-func (op *VRouterOperator) DescribeVRouters(params map[string]string) (DescribeVRoutersResponse, error) {
+func (op *VRouterOperator) DescribeVRouters(params map[string]interface{}) (DescribeVRoutersResponse, error) {
 	var resp DescribeVRoutersResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *VRouterOperator) ModifyVRouterAttribute(params map[string]string) (ModifyVRouterAttributeResponse, error) {
+func (op *VRouterOperator) ModifyVRouterAttribute(params map[string]interface{}) (ModifyVRouterAttributeResponse, error) {
 	var resp ModifyVRouterAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err

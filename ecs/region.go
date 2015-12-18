@@ -3,8 +3,8 @@ package ecs
 import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type RegionService interface {
-	DescribeRegions(params map[string]string) (DescribeRegionsResponse, error)
-	DescribeZones(params map[string]string) (DescribeZonesResponse, error)
+	DescribeRegions(params map[string]interface{}) (DescribeRegionsResponse, error)
+	DescribeZones(params map[string]interface{}) (DescribeZonesResponse, error)
 }
 
 type RegionOperator struct {
@@ -55,13 +55,13 @@ type AvailableDiskCategoriesType struct {
 	DiskCategories []string `json:"DiskCategories"`
 }
 
-func (op *RegionOperator) DescribeRegions(params map[string]string) (DescribeRegionsResponse, error) {
+func (op *RegionOperator) DescribeRegions(params map[string]interface{}) (DescribeRegionsResponse, error) {
 	var resp DescribeRegionsResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *RegionOperator) DescribeZones(params map[string]string) (DescribeZonesResponse, error) {
+func (op *RegionOperator) DescribeZones(params map[string]interface{}) (DescribeZonesResponse, error) {
 	var resp DescribeZonesResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err

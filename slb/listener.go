@@ -3,25 +3,25 @@ package slb
 import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type ListenerService interface {
-	CreateLoadBalancerHTTPListener(params map[string]string) (CreateLoadBalancerHTTPListenerResponse, error)
-	CreateLoadBalancerHTTPSListener(params map[string]string) (CreateLoadBalancerHTTPSListenerResponse, error)
-	CreateLoadBalancerTCPListener(params map[string]string) (CreateLoadBalancerTCPListenerResponse, error)
-	CreateLoadBalancerUDPListener(params map[string]string) (CreateLoadBalancerUDPListenerResponse, error)
-	DeleteLoadBalancerListener(params map[string]string) (DeleteLoadBalancerListenerResponse, error)
-	StartLoadBalancerListener(params map[string]string) (StartLoadBalancerListenerResponse, error)
-	StopLoadBalancerListener(params map[string]string) (StopLoadBalancerListenerResponse, error)
-	SetListenerAccessControlStatus(params map[string]string) (SetListenerAccessControlStatusResponse, error)
-	AddListenerWhiteListItem(params map[string]string) (AddListenerWhiteListItemResponse, error)
-	RemoveListenerWhiteListItem(params map[string]string) (RemoveListenerWhiteListItemResponse, error)
-	SetLoadBalancerHTTPListenerAttribute(params map[string]string) (SetLoadBalancerHTTPListenerAttributeResponse, error)
-	SetLoadBalancerHTTPSListenerAttribute(params map[string]string) (SetLoadBalancerHTTPSListenerAttributeResponse, error)
-	SetLoadBalancerTCPListenerAttribute(params map[string]string) (SetLoadBalancerTCPListenerAttributeResponse, error)
-	SetLoadBalancerUDPListenerAttribute(params map[string]string) (SetLoadBalancerUDPListenerAttributeResponse, error)
-	DescribeLoadBalancerHTTPListenerAttribute(params map[string]string) (DescribeLoadBalancerHTTPListenerAttributeResponse, error)
-	DescribeLoadBalancerHTTPSListenerAttribute(params map[string]string) (DescribeLoadBalancerHTTPSListenerAttributeResponse, error)
-	DescribeLoadBalancerTCPListenerAttribute(params map[string]string) (DescribeLoadBalancerTCPListenerAttributeResponse, error)
-	DescribeLoadBalancerUDPListenerAttribute(params map[string]string) (DescribeLoadBalancerUDPListenerAttributeResponse, error)
-	DescribeListenerAccessControlAttribute(params map[string]string) (DescribeListenerAccessControlAttributeResponse, error)
+	CreateLoadBalancerHTTPListener(params map[string]interface{}) (CreateLoadBalancerHTTPListenerResponse, error)
+	CreateLoadBalancerHTTPSListener(params map[string]interface{}) (CreateLoadBalancerHTTPSListenerResponse, error)
+	CreateLoadBalancerTCPListener(params map[string]interface{}) (CreateLoadBalancerTCPListenerResponse, error)
+	CreateLoadBalancerUDPListener(params map[string]interface{}) (CreateLoadBalancerUDPListenerResponse, error)
+	DeleteLoadBalancerListener(params map[string]interface{}) (DeleteLoadBalancerListenerResponse, error)
+	StartLoadBalancerListener(params map[string]interface{}) (StartLoadBalancerListenerResponse, error)
+	StopLoadBalancerListener(params map[string]interface{}) (StopLoadBalancerListenerResponse, error)
+	SetListenerAccessControlStatus(params map[string]interface{}) (SetListenerAccessControlStatusResponse, error)
+	AddListenerWhiteListItem(params map[string]interface{}) (AddListenerWhiteListItemResponse, error)
+	RemoveListenerWhiteListItem(params map[string]interface{}) (RemoveListenerWhiteListItemResponse, error)
+	SetLoadBalancerHTTPListenerAttribute(params map[string]interface{}) (SetLoadBalancerHTTPListenerAttributeResponse, error)
+	SetLoadBalancerHTTPSListenerAttribute(params map[string]interface{}) (SetLoadBalancerHTTPSListenerAttributeResponse, error)
+	SetLoadBalancerTCPListenerAttribute(params map[string]interface{}) (SetLoadBalancerTCPListenerAttributeResponse, error)
+	SetLoadBalancerUDPListenerAttribute(params map[string]interface{}) (SetLoadBalancerUDPListenerAttributeResponse, error)
+	DescribeLoadBalancerHTTPListenerAttribute(params map[string]interface{}) (DescribeLoadBalancerHTTPListenerAttributeResponse, error)
+	DescribeLoadBalancerHTTPSListenerAttribute(params map[string]interface{}) (DescribeLoadBalancerHTTPSListenerAttributeResponse, error)
+	DescribeLoadBalancerTCPListenerAttribute(params map[string]interface{}) (DescribeLoadBalancerTCPListenerAttributeResponse, error)
+	DescribeLoadBalancerUDPListenerAttribute(params map[string]interface{}) (DescribeLoadBalancerUDPListenerAttributeResponse, error)
+	DescribeListenerAccessControlAttribute(params map[string]interface{}) (DescribeListenerAccessControlAttributeResponse, error)
 }
 
 type ListenerOperator struct {
@@ -194,115 +194,115 @@ type DescribeListenerAccessControlAttributeResponse struct {
 	SourceItems         string `json:"SourceItems"`
 }
 
-func (op *ListenerOperator) CreateLoadBalancerHTTPListener(params map[string]string) (CreateLoadBalancerHTTPListenerResponse, error) {
+func (op *ListenerOperator) CreateLoadBalancerHTTPListener(params map[string]interface{}) (CreateLoadBalancerHTTPListenerResponse, error) {
 	var resp CreateLoadBalancerHTTPListenerResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) CreateLoadBalancerHTTPSListener(params map[string]string) (CreateLoadBalancerHTTPSListenerResponse, error) {
+func (op *ListenerOperator) CreateLoadBalancerHTTPSListener(params map[string]interface{}) (CreateLoadBalancerHTTPSListenerResponse, error) {
 	var resp CreateLoadBalancerHTTPSListenerResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) CreateLoadBalancerTCPListener(params map[string]string) (CreateLoadBalancerTCPListenerResponse, error) {
+func (op *ListenerOperator) CreateLoadBalancerTCPListener(params map[string]interface{}) (CreateLoadBalancerTCPListenerResponse, error) {
 	var resp CreateLoadBalancerTCPListenerResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) CreateLoadBalancerUDPListener(params map[string]string) (CreateLoadBalancerUDPListenerResponse, error) {
+func (op *ListenerOperator) CreateLoadBalancerUDPListener(params map[string]interface{}) (CreateLoadBalancerUDPListenerResponse, error) {
 	var resp CreateLoadBalancerUDPListenerResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) DeleteLoadBalancerListener(params map[string]string) (DeleteLoadBalancerListenerResponse, error) {
+func (op *ListenerOperator) DeleteLoadBalancerListener(params map[string]interface{}) (DeleteLoadBalancerListenerResponse, error) {
 	var resp DeleteLoadBalancerListenerResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) StartLoadBalancerListener(params map[string]string) (StartLoadBalancerListenerResponse, error) {
+func (op *ListenerOperator) StartLoadBalancerListener(params map[string]interface{}) (StartLoadBalancerListenerResponse, error) {
 	var resp StartLoadBalancerListenerResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) StopLoadBalancerListener(params map[string]string) (StopLoadBalancerListenerResponse, error) {
+func (op *ListenerOperator) StopLoadBalancerListener(params map[string]interface{}) (StopLoadBalancerListenerResponse, error) {
 	var resp StopLoadBalancerListenerResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) SetListenerAccessControlStatus(params map[string]string) (SetListenerAccessControlStatusResponse, error) {
+func (op *ListenerOperator) SetListenerAccessControlStatus(params map[string]interface{}) (SetListenerAccessControlStatusResponse, error) {
 	var resp SetListenerAccessControlStatusResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) AddListenerWhiteListItem(params map[string]string) (AddListenerWhiteListItemResponse, error) {
+func (op *ListenerOperator) AddListenerWhiteListItem(params map[string]interface{}) (AddListenerWhiteListItemResponse, error) {
 	var resp AddListenerWhiteListItemResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) RemoveListenerWhiteListItem(params map[string]string) (RemoveListenerWhiteListItemResponse, error) {
+func (op *ListenerOperator) RemoveListenerWhiteListItem(params map[string]interface{}) (RemoveListenerWhiteListItemResponse, error) {
 	var resp RemoveListenerWhiteListItemResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) SetLoadBalancerHTTPListenerAttribute(params map[string]string) (SetLoadBalancerHTTPListenerAttributeResponse, error) {
+func (op *ListenerOperator) SetLoadBalancerHTTPListenerAttribute(params map[string]interface{}) (SetLoadBalancerHTTPListenerAttributeResponse, error) {
 	var resp SetLoadBalancerHTTPListenerAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) SetLoadBalancerHTTPSListenerAttribute(params map[string]string) (SetLoadBalancerHTTPSListenerAttributeResponse, error) {
+func (op *ListenerOperator) SetLoadBalancerHTTPSListenerAttribute(params map[string]interface{}) (SetLoadBalancerHTTPSListenerAttributeResponse, error) {
 	var resp SetLoadBalancerHTTPSListenerAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) SetLoadBalancerTCPListenerAttribute(params map[string]string) (SetLoadBalancerTCPListenerAttributeResponse, error) {
+func (op *ListenerOperator) SetLoadBalancerTCPListenerAttribute(params map[string]interface{}) (SetLoadBalancerTCPListenerAttributeResponse, error) {
 	var resp SetLoadBalancerTCPListenerAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) SetLoadBalancerUDPListenerAttribute(params map[string]string) (SetLoadBalancerUDPListenerAttributeResponse, error) {
+func (op *ListenerOperator) SetLoadBalancerUDPListenerAttribute(params map[string]interface{}) (SetLoadBalancerUDPListenerAttributeResponse, error) {
 	var resp SetLoadBalancerUDPListenerAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) DescribeLoadBalancerHTTPListenerAttribute(params map[string]string) (DescribeLoadBalancerHTTPListenerAttributeResponse, error) {
+func (op *ListenerOperator) DescribeLoadBalancerHTTPListenerAttribute(params map[string]interface{}) (DescribeLoadBalancerHTTPListenerAttributeResponse, error) {
 	var resp DescribeLoadBalancerHTTPListenerAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) DescribeLoadBalancerHTTPSListenerAttribute(params map[string]string) (DescribeLoadBalancerHTTPSListenerAttributeResponse, error) {
+func (op *ListenerOperator) DescribeLoadBalancerHTTPSListenerAttribute(params map[string]interface{}) (DescribeLoadBalancerHTTPSListenerAttributeResponse, error) {
 	var resp DescribeLoadBalancerHTTPSListenerAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) DescribeLoadBalancerTCPListenerAttribute(params map[string]string) (DescribeLoadBalancerTCPListenerAttributeResponse, error) {
+func (op *ListenerOperator) DescribeLoadBalancerTCPListenerAttribute(params map[string]interface{}) (DescribeLoadBalancerTCPListenerAttributeResponse, error) {
 	var resp DescribeLoadBalancerTCPListenerAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) DescribeLoadBalancerUDPListenerAttribute(params map[string]string) (DescribeLoadBalancerUDPListenerAttributeResponse, error) {
+func (op *ListenerOperator) DescribeLoadBalancerUDPListenerAttribute(params map[string]interface{}) (DescribeLoadBalancerUDPListenerAttributeResponse, error) {
 	var resp DescribeLoadBalancerUDPListenerAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ListenerOperator) DescribeListenerAccessControlAttribute(params map[string]string) (DescribeListenerAccessControlAttributeResponse, error) {
+func (op *ListenerOperator) DescribeListenerAccessControlAttribute(params map[string]interface{}) (DescribeListenerAccessControlAttributeResponse, error) {
 	var resp DescribeListenerAccessControlAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err

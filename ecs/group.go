@@ -3,15 +3,15 @@ package ecs
 import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type SecurityGroupService interface {
-	CreateSecurityGroup(params map[string]string) (CreateSecurityGroupResponse, error)
-	AuthorizeSecurityGroup(params map[string]string) (AuthorizeSecurityGroupResponse, error)
-	DescribeSecurityGroupAttribute(params map[string]string) (DescribeSecurityGroupAttributeResponse, error)
-	DescribeSecurityGroups(params map[string]string) (DescribeSecurityGroupsResponse, error)
-	RevokeSecurityGroup(params map[string]string) (RevokeSecurityGroupResponse, error)
-	DeleteSecurityGroup(params map[string]string) (DeleteSecurityGroupResponse, error)
-	ModifySecurityGroupAttribute(params map[string]string) (ModifySecurityGroupAttributeResponse, error)
-	AuthorizeSecurityGroupEgress(params map[string]string) (AuthorizeSecurityGroupEgressResponse, error)
-	RevokeSecurityGroupEgress(params map[string]string) (RevokeSecurityGroupEgressResponse, error)
+	CreateSecurityGroup(params map[string]interface{}) (CreateSecurityGroupResponse, error)
+	AuthorizeSecurityGroup(params map[string]interface{}) (AuthorizeSecurityGroupResponse, error)
+	DescribeSecurityGroupAttribute(params map[string]interface{}) (DescribeSecurityGroupAttributeResponse, error)
+	DescribeSecurityGroups(params map[string]interface{}) (DescribeSecurityGroupsResponse, error)
+	RevokeSecurityGroup(params map[string]interface{}) (RevokeSecurityGroupResponse, error)
+	DeleteSecurityGroup(params map[string]interface{}) (DeleteSecurityGroupResponse, error)
+	ModifySecurityGroupAttribute(params map[string]interface{}) (ModifySecurityGroupAttributeResponse, error)
+	AuthorizeSecurityGroupEgress(params map[string]interface{}) (AuthorizeSecurityGroupEgressResponse, error)
+	RevokeSecurityGroupEgress(params map[string]interface{}) (RevokeSecurityGroupEgressResponse, error)
 }
 
 type SecurityGroupOperator struct {
@@ -104,55 +104,55 @@ type RevokeSecurityGroupEgressResponse struct {
 	util.ErrorResponse
 }
 
-func (op *SecurityGroupOperator) CreateSecurityGroup(params map[string]string) (CreateSecurityGroupResponse, error) {
+func (op *SecurityGroupOperator) CreateSecurityGroup(params map[string]interface{}) (CreateSecurityGroupResponse, error) {
 	var resp CreateSecurityGroupResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *SecurityGroupOperator) AuthorizeSecurityGroup(params map[string]string) (AuthorizeSecurityGroupResponse, error) {
+func (op *SecurityGroupOperator) AuthorizeSecurityGroup(params map[string]interface{}) (AuthorizeSecurityGroupResponse, error) {
 	var resp AuthorizeSecurityGroupResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *SecurityGroupOperator) DescribeSecurityGroupAttribute(params map[string]string) (DescribeSecurityGroupAttributeResponse, error) {
+func (op *SecurityGroupOperator) DescribeSecurityGroupAttribute(params map[string]interface{}) (DescribeSecurityGroupAttributeResponse, error) {
 	var resp DescribeSecurityGroupAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *SecurityGroupOperator) DescribeSecurityGroups(params map[string]string) (DescribeSecurityGroupsResponse, error) {
+func (op *SecurityGroupOperator) DescribeSecurityGroups(params map[string]interface{}) (DescribeSecurityGroupsResponse, error) {
 	var resp DescribeSecurityGroupsResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *SecurityGroupOperator) RevokeSecurityGroup(params map[string]string) (RevokeSecurityGroupResponse, error) {
+func (op *SecurityGroupOperator) RevokeSecurityGroup(params map[string]interface{}) (RevokeSecurityGroupResponse, error) {
 	var resp RevokeSecurityGroupResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *SecurityGroupOperator) DeleteSecurityGroup(params map[string]string) (DeleteSecurityGroupResponse, error) {
+func (op *SecurityGroupOperator) DeleteSecurityGroup(params map[string]interface{}) (DeleteSecurityGroupResponse, error) {
 	var resp DeleteSecurityGroupResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *SecurityGroupOperator) ModifySecurityGroupAttribute(params map[string]string) (ModifySecurityGroupAttributeResponse, error) {
+func (op *SecurityGroupOperator) ModifySecurityGroupAttribute(params map[string]interface{}) (ModifySecurityGroupAttributeResponse, error) {
 	var resp ModifySecurityGroupAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *SecurityGroupOperator) AuthorizeSecurityGroupEgress(params map[string]string) (AuthorizeSecurityGroupEgressResponse, error) {
+func (op *SecurityGroupOperator) AuthorizeSecurityGroupEgress(params map[string]interface{}) (AuthorizeSecurityGroupEgressResponse, error) {
 	var resp AuthorizeSecurityGroupEgressResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *SecurityGroupOperator) RevokeSecurityGroupEgress(params map[string]string) (RevokeSecurityGroupEgressResponse, error) {
+func (op *SecurityGroupOperator) RevokeSecurityGroupEgress(params map[string]interface{}) (RevokeSecurityGroupEgressResponse, error) {
 	var resp RevokeSecurityGroupEgressResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err

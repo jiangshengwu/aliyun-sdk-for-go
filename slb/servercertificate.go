@@ -3,10 +3,10 @@ package slb
 import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type ServerCertificateService interface {
-	UploadServerCertificate(params map[string]string) (UploadServerCertificateResponse, error)
-	DeleteServerCertificate(params map[string]string) (DeleteServerCertificateResponse, error)
-	DescribeServerCertificates(params map[string]string) (DescribeServerCertificatesResponse, error)
-	SetServerCertificateName(params map[string]string) (SetServerCertificateNameResponse, error)
+	UploadServerCertificate(params map[string]interface{}) (UploadServerCertificateResponse, error)
+	DeleteServerCertificate(params map[string]interface{}) (DeleteServerCertificateResponse, error)
+	DescribeServerCertificates(params map[string]interface{}) (DescribeServerCertificatesResponse, error)
+	SetServerCertificateName(params map[string]interface{}) (SetServerCertificateNameResponse, error)
 }
 
 type ServerCertificateOperator struct {
@@ -48,25 +48,25 @@ type SetServerCertificateNameResponse struct {
 	util.ErrorResponse
 }
 
-func (op *ServerCertificateOperator) UploadServerCertificate(params map[string]string) (UploadServerCertificateResponse, error) {
+func (op *ServerCertificateOperator) UploadServerCertificate(params map[string]interface{}) (UploadServerCertificateResponse, error) {
 	var resp UploadServerCertificateResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ServerCertificateOperator) DeleteServerCertificate(params map[string]string) (DeleteServerCertificateResponse, error) {
+func (op *ServerCertificateOperator) DeleteServerCertificate(params map[string]interface{}) (DeleteServerCertificateResponse, error) {
 	var resp DeleteServerCertificateResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ServerCertificateOperator) DescribeServerCertificates(params map[string]string) (DescribeServerCertificatesResponse, error) {
+func (op *ServerCertificateOperator) DescribeServerCertificates(params map[string]interface{}) (DescribeServerCertificatesResponse, error) {
 	var resp DescribeServerCertificatesResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *ServerCertificateOperator) SetServerCertificateName(params map[string]string) (SetServerCertificateNameResponse, error) {
+func (op *ServerCertificateOperator) SetServerCertificateName(params map[string]interface{}) (SetServerCertificateNameResponse, error) {
 	var resp SetServerCertificateNameResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err

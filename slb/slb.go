@@ -38,7 +38,7 @@ func NewClient(accessKeyId string, accessKeySecret string, resourceOwnerAccount 
 	client.Common.AccessKeyId = accessKeyId
 	client.Common.AccessKeySecret = accessKeySecret
 	client.Common.ResourceOwnerAccount = resourceOwnerAccount
-	ps := map[string]string{
+	ps := map[string]interface{}{
 		"Host":             SLBHost,
 		"HttpMethod":       SLBHttpMethod,
 		"Format":           Format,
@@ -61,13 +61,13 @@ func (client *SlbClient) GetClientName() string {
 }
 
 func (client *SlbClient) GetVersion() string {
-	return client.Common.Attr["Version"]
+	return client.Common.Attr["Version"].(string)
 }
 
 func (client *SlbClient) GetSignatureMethod() string {
-	return client.Common.Attr["SignatureMethod"]
+	return client.Common.Attr["SignatureMethod"].(string)
 }
 
 func (client *SlbClient) GetSignatureVersion() string {
-	return client.Common.Attr["SignatureVersion"]
+	return client.Common.Attr["SignatureVersion"].(string)
 }

@@ -14,7 +14,8 @@ func main() {
 	)
 
 	// Perform request
-	result, err := cli.SecurityGroup.DescribeSecurityGroupAttribute(map[string]string{
+	result, err := cli.SecurityGroup.DescribeSecurityGroupAttribute(map[string]interface{}{
+
 		"RegionId":        "cn-beijing",
 		"SecurityGroupId": "sg-25rh80j7f",
 	})

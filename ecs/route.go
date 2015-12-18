@@ -10,14 +10,14 @@ type RouteService interface {
 	 * NextHopId: 路由条目的下一跳
 	 * ClientToken(optional):
 	 */
-	CreateRouteEntry(param map[string]string) (CreateRouteEntryResponse, error)
+	CreateRouteEntry(param map[string]interface{}) (CreateRouteEntryResponse, error)
 
 	/**
 	 * RouteTableId(required):
 	 * DestinationCidrBlock(required):
 	 * NextHopId(required):
 	 */
-	DeleteRouteEntry(params map[string]string) (DeleteRouteEntryResponse, error)
+	DeleteRouteEntry(params map[string]interface{}) (DeleteRouteEntryResponse, error)
 
 	/**
 	 * VRouterId(required)
@@ -25,7 +25,7 @@ type RouteService interface {
 	 * PageNumber
 	 * PageSize
 	 */
-	DescribeRouteTables(params map[string]string) (DescribeRouteTablesResponse, error)
+	DescribeRouteTables(params map[string]interface{}) (DescribeRouteTablesResponse, error)
 }
 
 type RouteOperator struct {
@@ -71,19 +71,19 @@ type RouteEntrySetType struct {
 	InstanceId           string `json:"InstanceId"`
 }
 
-func (op *RouteOperator) CreateRouteEntry(params map[string]string) (CreateRouteEntryResponse, error) {
+func (op *RouteOperator) CreateRouteEntry(params map[string]interface{}) (CreateRouteEntryResponse, error) {
 	var resp CreateRouteEntryResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *RouteOperator) DeleteRouteEntry(params map[string]string) (DeleteRouteEntryResponse, error) {
+func (op *RouteOperator) DeleteRouteEntry(params map[string]interface{}) (DeleteRouteEntryResponse, error) {
 	var resp DeleteRouteEntryResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *RouteOperator) DescribeRouteTables(params map[string]string) (DescribeRouteTablesResponse, error) {
+func (op *RouteOperator) DescribeRouteTables(params map[string]interface{}) (DescribeRouteTablesResponse, error) {
 	var resp DescribeRouteTablesResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err

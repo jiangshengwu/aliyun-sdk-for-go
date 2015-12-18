@@ -3,14 +3,14 @@ package slb
 import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type LoadBalancerService interface {
-	CreateLoadBalancer(params map[string]string) (CreateLoadBalancerResponse, error)
-	ModifyLoadBalancerInternetSpec(params map[string]string) (ModifyLoadBalancerInternetSpecResponse, error)
-	DeleteLoadBalancer(params map[string]string) (DeleteLoadBalancerResponse, error)
-	SetLoadBalancerStatus(params map[string]string) (SetLoadBalancerStatusResponse, error)
-	SetLoadBalancerName(params map[string]string) (SetLoadBalancerNameResponse, error)
-	DescribeLoadBalancers(params map[string]string) (DescribeLoadBalancersResponse, error)
-	DescribeLoadBalancerAttribute(params map[string]string) (DescribeLoadBalancerAttributeResponse, error)
-	DescribeRegions(params map[string]string) (DescribeRegionsResponse, error)
+	CreateLoadBalancer(params map[string]interface{}) (CreateLoadBalancerResponse, error)
+	ModifyLoadBalancerInternetSpec(params map[string]interface{}) (ModifyLoadBalancerInternetSpecResponse, error)
+	DeleteLoadBalancer(params map[string]interface{}) (DeleteLoadBalancerResponse, error)
+	SetLoadBalancerStatus(params map[string]interface{}) (SetLoadBalancerStatusResponse, error)
+	SetLoadBalancerName(params map[string]interface{}) (SetLoadBalancerNameResponse, error)
+	DescribeLoadBalancers(params map[string]interface{}) (DescribeLoadBalancersResponse, error)
+	DescribeLoadBalancerAttribute(params map[string]interface{}) (DescribeLoadBalancerAttributeResponse, error)
+	DescribeRegions(params map[string]interface{}) (DescribeRegionsResponse, error)
 }
 
 type LoadBalancerOperator struct {
@@ -122,49 +122,49 @@ type RegionType struct {
 	LocalName string `json:"LocalName"`
 }
 
-func (op *LoadBalancerOperator) CreateLoadBalancer(params map[string]string) (CreateLoadBalancerResponse, error) {
+func (op *LoadBalancerOperator) CreateLoadBalancer(params map[string]interface{}) (CreateLoadBalancerResponse, error) {
 	var resp CreateLoadBalancerResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *LoadBalancerOperator) ModifyLoadBalancerInternetSpec(params map[string]string) (ModifyLoadBalancerInternetSpecResponse, error) {
+func (op *LoadBalancerOperator) ModifyLoadBalancerInternetSpec(params map[string]interface{}) (ModifyLoadBalancerInternetSpecResponse, error) {
 	var resp ModifyLoadBalancerInternetSpecResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *LoadBalancerOperator) DeleteLoadBalancer(params map[string]string) (DeleteLoadBalancerResponse, error) {
+func (op *LoadBalancerOperator) DeleteLoadBalancer(params map[string]interface{}) (DeleteLoadBalancerResponse, error) {
 	var resp DeleteLoadBalancerResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *LoadBalancerOperator) SetLoadBalancerStatus(params map[string]string) (SetLoadBalancerStatusResponse, error) {
+func (op *LoadBalancerOperator) SetLoadBalancerStatus(params map[string]interface{}) (SetLoadBalancerStatusResponse, error) {
 	var resp SetLoadBalancerStatusResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *LoadBalancerOperator) SetLoadBalancerName(params map[string]string) (SetLoadBalancerNameResponse, error) {
+func (op *LoadBalancerOperator) SetLoadBalancerName(params map[string]interface{}) (SetLoadBalancerNameResponse, error) {
 	var resp SetLoadBalancerNameResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *LoadBalancerOperator) DescribeLoadBalancers(params map[string]string) (DescribeLoadBalancersResponse, error) {
+func (op *LoadBalancerOperator) DescribeLoadBalancers(params map[string]interface{}) (DescribeLoadBalancersResponse, error) {
 	var resp DescribeLoadBalancersResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *LoadBalancerOperator) DescribeLoadBalancerAttribute(params map[string]string) (DescribeLoadBalancerAttributeResponse, error) {
+func (op *LoadBalancerOperator) DescribeLoadBalancerAttribute(params map[string]interface{}) (DescribeLoadBalancerAttributeResponse, error) {
 	var resp DescribeLoadBalancerAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *LoadBalancerOperator) DescribeRegions(params map[string]string) (DescribeRegionsResponse, error) {
+func (op *LoadBalancerOperator) DescribeRegions(params map[string]interface{}) (DescribeRegionsResponse, error) {
 	var resp DescribeRegionsResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err

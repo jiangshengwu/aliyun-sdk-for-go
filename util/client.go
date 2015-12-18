@@ -17,7 +17,7 @@ type CommonParam struct {
 	AccessKeyId          string
 	AccessKeySecret      string
 	ResourceOwnerAccount string
-	Attr                 map[string]string
+	Attr                 map[string]interface{}
 }
 
 type ClientInterface interface {
@@ -27,19 +27,19 @@ type ClientInterface interface {
 	GetSignatureVersion() string
 }
 
-func (c *CommonParam) RequestAPI(params map[string]string) (string, error) {
+func (c *CommonParam) RequestAPI(params map[string]interface{}) (string, error) {
 	query := GetQueryFromMap(params)
 	req := &AliyunRequest{}
-	req.Url = c.Attr["Host"] + query
+	req.Url = c.Attr["Host"].(string) + query
 	log.Debug(req.Url)
 	result, err := req.DoGetRequest()
 	return result, err
 }
 
 // Generate all parameters include Signature
-func (c *CommonParam) ResolveAllParams(action string, params map[string]string) map[string]string {
+func (c *CommonParam) ResolveAllParams(action string, params map[string]interface{}) map[string]interface{} {
 	if params == nil {
-		params = make(map[string]string, len(c.Attr))
+		params = make(map[string]interface{}, len(c.Attr))
 	}
 	// Process parameters
 	for key, value := range c.Attr {
@@ -51,12 +51,12 @@ func (c *CommonParam) ResolveAllParams(action string, params map[string]string) 
 	}
 	params["TimeStamp"] = time.Now().UTC().Format("2006-01-02T15:04:05Z")
 	params["SignatureNonce"] = GetGuid()
-	sign := MapToSign(params, c.AccessKeySecret, c.Attr["HttpMethod"])
+	sign := MapToSign(params, c.AccessKeySecret, c.Attr["HttpMethod"].(string))
 	params["Signature"] = sign
 	return params
 }
 
-func (c *CommonParam) Request(action string, params map[string]string, response interface{}) error {
+func (c *CommonParam) Request(action string, params map[string]interface{}, response interface{}) error {
 	p := c.ResolveAllParams(action, params)
 	result, err := c.RequestAPI(p)
 	if err != nil {

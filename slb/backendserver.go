@@ -3,10 +3,10 @@ package slb
 import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type BackendServerService interface {
-	AddBackendServers(params map[string]string) (AddBackendServersResponse, error)
-	RemoveBackendServers(params map[string]string) (RemoveBackendServersResponse, error)
-	SetBackendServers(params map[string]string) (SetBackendServersResponse, error)
-	DescribeHealthStatus(params map[string]string) (DescribeHealthStatusResponse, error)
+	AddBackendServers(params map[string]interface{}) (AddBackendServersResponse, error)
+	RemoveBackendServers(params map[string]interface{}) (RemoveBackendServersResponse, error)
+	SetBackendServers(params map[string]interface{}) (SetBackendServersResponse, error)
+	DescribeHealthStatus(params map[string]interface{}) (DescribeHealthStatusResponse, error)
 }
 
 type BackendServerOperator struct {
@@ -50,25 +50,25 @@ type DescribeHealthStatusResponse struct {
 	BackendServers BackendServerList `json:"BackendServers"`
 }
 
-func (op *BackendServerOperator) AddBackendServers(params map[string]string) (AddBackendServersResponse, error) {
+func (op *BackendServerOperator) AddBackendServers(params map[string]interface{}) (AddBackendServersResponse, error) {
 	var resp AddBackendServersResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *BackendServerOperator) RemoveBackendServers(params map[string]string) (RemoveBackendServersResponse, error) {
+func (op *BackendServerOperator) RemoveBackendServers(params map[string]interface{}) (RemoveBackendServersResponse, error) {
 	var resp RemoveBackendServersResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *BackendServerOperator) SetBackendServers(params map[string]string) (SetBackendServersResponse, error) {
+func (op *BackendServerOperator) SetBackendServers(params map[string]interface{}) (SetBackendServersResponse, error) {
 	var resp SetBackendServersResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *BackendServerOperator) DescribeHealthStatus(params map[string]string) (DescribeHealthStatusResponse, error) {
+func (op *BackendServerOperator) DescribeHealthStatus(params map[string]interface{}) (DescribeHealthStatusResponse, error) {
 	var resp DescribeHealthStatusResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err

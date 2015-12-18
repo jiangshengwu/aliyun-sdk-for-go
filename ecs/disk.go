@@ -3,16 +3,16 @@ package ecs
 import "github.com/jiangshengwu/aliyun-sdk-for-go/util"
 
 type DiskService interface {
-	CreateDisk(params map[string]string) (CreateDiskResponse, error)
-	DescribeDisks(params map[string]string) (DescribeDisksResponse, error)
-	AttachDisk(params map[string]string) (AttachDiskResponse, error)
-	DetachDisk(params map[string]string) (DetachDiskResponse, error)
-	ModifyDiskAttribute(params map[string]string) (ModifyDiskAttributeResponse, error)
-	DeleteDisk(params map[string]string) (DeleteDiskResponse, error)
-	ReInitDisk(params map[string]string) (ReInitDiskResponse, error)
-	ResetDisk(params map[string]string) (ResetDiskResponse, error)
-	ReplaceSystemDisk(params map[string]string) (ReplaceSystemDiskResponse, error)
-	ResizeDisk(params map[string]string) (ResizeDiskResponse, error)
+	CreateDisk(params map[string]interface{}) (CreateDiskResponse, error)
+	DescribeDisks(params map[string]interface{}) (DescribeDisksResponse, error)
+	AttachDisk(params map[string]interface{}) (AttachDiskResponse, error)
+	DetachDisk(params map[string]interface{}) (DetachDiskResponse, error)
+	ModifyDiskAttribute(params map[string]interface{}) (ModifyDiskAttributeResponse, error)
+	DeleteDisk(params map[string]interface{}) (DeleteDiskResponse, error)
+	ReInitDisk(params map[string]interface{}) (ReInitDiskResponse, error)
+	ResetDisk(params map[string]interface{}) (ResetDiskResponse, error)
+	ReplaceSystemDisk(params map[string]interface{}) (ReplaceSystemDiskResponse, error)
+	ResizeDisk(params map[string]interface{}) (ResizeDiskResponse, error)
 }
 
 type DiskOperator struct {
@@ -102,61 +102,61 @@ type ResizeDiskResponse struct {
 	util.ErrorResponse
 }
 
-func (op *DiskOperator) CreateDisk(params map[string]string) (CreateDiskResponse, error) {
+func (op *DiskOperator) CreateDisk(params map[string]interface{}) (CreateDiskResponse, error) {
 	var resp CreateDiskResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *DiskOperator) DescribeDisks(params map[string]string) (DescribeDisksResponse, error) {
+func (op *DiskOperator) DescribeDisks(params map[string]interface{}) (DescribeDisksResponse, error) {
 	var resp DescribeDisksResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *DiskOperator) AttachDisk(params map[string]string) (AttachDiskResponse, error) {
+func (op *DiskOperator) AttachDisk(params map[string]interface{}) (AttachDiskResponse, error) {
 	var resp AttachDiskResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *DiskOperator) DetachDisk(params map[string]string) (DetachDiskResponse, error) {
+func (op *DiskOperator) DetachDisk(params map[string]interface{}) (DetachDiskResponse, error) {
 	var resp DetachDiskResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *DiskOperator) ModifyDiskAttribute(params map[string]string) (ModifyDiskAttributeResponse, error) {
+func (op *DiskOperator) ModifyDiskAttribute(params map[string]interface{}) (ModifyDiskAttributeResponse, error) {
 	var resp ModifyDiskAttributeResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *DiskOperator) DeleteDisk(params map[string]string) (DeleteDiskResponse, error) {
+func (op *DiskOperator) DeleteDisk(params map[string]interface{}) (DeleteDiskResponse, error) {
 	var resp DeleteDiskResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *DiskOperator) ReInitDisk(params map[string]string) (ReInitDiskResponse, error) {
+func (op *DiskOperator) ReInitDisk(params map[string]interface{}) (ReInitDiskResponse, error) {
 	var resp ReInitDiskResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *DiskOperator) ResetDisk(params map[string]string) (ResetDiskResponse, error) {
+func (op *DiskOperator) ResetDisk(params map[string]interface{}) (ResetDiskResponse, error) {
 	var resp ResetDiskResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *DiskOperator) ReplaceSystemDisk(params map[string]string) (ReplaceSystemDiskResponse, error) {
+func (op *DiskOperator) ReplaceSystemDisk(params map[string]interface{}) (ReplaceSystemDiskResponse, error) {
 	var resp ReplaceSystemDiskResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
 
-func (op *DiskOperator) ResizeDisk(params map[string]string) (ResizeDiskResponse, error) {
+func (op *DiskOperator) ResizeDisk(params map[string]interface{}) (ResizeDiskResponse, error) {
 	var resp ResizeDiskResponse
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
