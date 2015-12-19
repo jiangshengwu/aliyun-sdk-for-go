@@ -47,8 +47,8 @@ func NewClient(accessKeyId string, accessKeySecret string, resourceOwnerAccount 
 	client.Common.AccessKeyId = accessKeyId
 	client.Common.AccessKeySecret = accessKeySecret
 	client.Common.ResourceOwnerAccount = resourceOwnerAccount
+	client.Common.Host = ECSHost
 	ps := map[string]interface{}{
-		"Host":             ECSHost,
 		"HttpMethod":       ECSHttpMethod,
 		"Format":           Format,
 		"Version":          Version,

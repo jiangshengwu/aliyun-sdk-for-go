@@ -14,6 +14,7 @@ type Client struct {
 
 // struct for common parameters
 type CommonParam struct {
+	Host                 string
 	AccessKeyId          string
 	AccessKeySecret      string
 	ResourceOwnerAccount string
@@ -30,7 +31,7 @@ type ClientInterface interface {
 func (c *CommonParam) RequestAPI(params map[string]interface{}) (string, error) {
 	query := GetQueryFromMap(params)
 	req := &AliyunRequest{}
-	req.Url = c.Attr["Host"].(string) + query
+	req.Url = c.Host + query
 	log.Debug(req.Url)
 	result, err := req.DoGetRequest()
 	return result, err

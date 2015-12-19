@@ -1,11 +1,9 @@
 package util
 
 import (
+	"encoding/json"
 	"io/ioutil"
 	"net/http"
-
-	"encoding/json"
-
 	"strconv"
 
 	"github.com/jiangshengwu/aliyun-sdk-for-go/log"

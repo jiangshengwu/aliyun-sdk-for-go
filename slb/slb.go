@@ -38,8 +38,8 @@ func NewClient(accessKeyId string, accessKeySecret string, resourceOwnerAccount 
 	client.Common.AccessKeyId = accessKeyId
 	client.Common.AccessKeySecret = accessKeySecret
 	client.Common.ResourceOwnerAccount = resourceOwnerAccount
+	client.Common.Host = SLBHost
 	ps := map[string]interface{}{
-		"Host":             SLBHost,
 		"HttpMethod":       SLBHttpMethod,
 		"Format":           Format,
 		"Version":          Version,

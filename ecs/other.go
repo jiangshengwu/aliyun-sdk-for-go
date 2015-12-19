@@ -22,9 +22,10 @@ type InstanceTypes struct {
 
 // See http://docs.aliyun.com/?spm=5176.775974174.2.4.BYfRJ2#/ecs/open-api/datatype&instancetypeitemtype
 type InstanceTypeItemType struct {
-	InstanceTypeId string  `json:"InstanceTypeId"`
-	CpuCoreCount   int     `json:"CpuCoreCount"`
-	MemorySize     float64 `json:"MemorySize"`
+	InstanceTypeFamily string  `json:"InstanceTypeFamily"`
+	InstanceTypeId     string  `json:"InstanceTypeId"`
+	CpuCoreCount       int     `json:"CpuCoreCount"`
+	MemorySize         float64 `json:"MemorySize"`
 }
 
 func (op *OtherOperator) DescribeInstanceTypes(params map[string]interface{}) (DescribeInstanceTypesResponse, error) {
