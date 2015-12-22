@@ -91,20 +91,30 @@ type DescribeLoadBalancerAttributeResponse struct {
 	Bandwidth                int                          `json:"Bandwidth"`
 	CreateTime               string                       `json:"CreateTime"`
 	ListenerPorts            ListenerPortList             `json:"ListenerPorts"`
-	ListenerPortsAndProtocal ListenerPortsAndProtocalList `json:"ListenerPortsAndProtocal"`
+	ListenerPortsAndProtocal ListenerPortAndProtocalList `json:"ListenerPortsAndProtocal"`
+	ListenerPortsAndProtocol ListenerPortAndProtocolList `json:"ListenerPortsAndProtocol"`
 	BackendServers           BackendServerList            `json:"BackendServers"`
 }
 type ListenerPortList struct {
 	ListenerPort []int `json:"ListenerPort"`
 }
 
-type ListenerPortsAndProtocalList struct {
-	ListenerPortsAndProtocal []ListenerPortsAndProtocalType `json:"ListenerPortsAndProtocal"`
+type ListenerPortAndProtocalList struct {
+	ListenerPortAndProtocal []ListenerPortAndProtocalType `json:"ListenerPortAndProtocal"`
 }
 
-type ListenerPortsAndProtocalType struct {
+type ListenerPortAndProtocalType struct {
 	ListenerPort     int    `json:"ListenerPort"`
 	ListenerProtocal string `json:"ListenerProtocal"`
+}
+
+type ListenerPortAndProtocolList struct {
+	ListenerPortAndProtocol []ListenerPortAndProtocolType `json:"ListenerPortAndProtocol"`
+}
+
+type ListenerPortAndProtocolType struct {
+	ListenerPort     int    `json:"ListenerPort"`
+	ListenerProtocol string `json:"ListenerProtocol"`
 }
 
 // Response struct for DescribeRegions
