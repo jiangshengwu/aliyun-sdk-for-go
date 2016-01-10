@@ -27,6 +27,7 @@ type CreateDiskResponse struct {
 
 // Response struct for DescribeDisks
 type DescribeDisksResponse struct {
+	util.PageResponse
 	util.ErrorResponse
 	AllDisks Disks `json:"Disks"`
 }
