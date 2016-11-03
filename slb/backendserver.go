@@ -54,9 +54,9 @@ type DescribeHealthStatusResponse struct {
 }
 
 type VGroup_BackendServerType struct {
-	ServerId           string `json:"ServerId"`
-	Port             int    `json:"Port"`
-	Weight             int    `json:"Weight"`
+	ServerId string `json:"ServerId"`
+	Port     int    `json:"Port"`
+	Weight   int    `json:"Weight"`
 }
 
 type VGroup_BackendServerList struct {
@@ -66,22 +66,22 @@ type VGroup_BackendServerList struct {
 // Response struct for AddBackendServers
 type VGroup_AddBackendServersResponse struct {
 	util.ErrorResponse
-	VServerGroupId string            `json:"VServerGroupId"`
+	VServerGroupId        string                   `json:"VServerGroupId"`
 	VGroup_BackendServers VGroup_BackendServerList `json:"BackendServers"`
 }
 
 // Response struct for RemoveBackendServers
 type VGroup_RemoveBackendServersResponse struct {
 	util.ErrorResponse
-	VServerGroupId string            `json:"VServerGroupId"`
+	VServerGroupId        string                   `json:"VServerGroupId"`
 	VGroup_BackendServers VGroup_BackendServerList `json:"BackendServers"`
 }
 
 // Response struct for DescribeHealthStatus
 type VGroup_DescribeHealthStatusResponse struct {
 	util.ErrorResponse
-	VServerGroupId string            `json:"VServerGroupId"`
-	VServerGroupName string            `json:"VServerGroupName"`
+	VServerGroupId        string                   `json:"VServerGroupId"`
+	VServerGroupName      string                   `json:"VServerGroupName"`
 	VGroup_BackendServers VGroup_BackendServerList `json:"BackendServers"`
 }
 
@@ -126,4 +126,3 @@ func (op *BackendServerOperator) DescribeVServerGroupAttribute(params map[string
 	err := op.Common.Request(util.GetFuncName(1), params, &resp)
 	return resp, err
 }
-
